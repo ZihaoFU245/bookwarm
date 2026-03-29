@@ -1,22 +1,43 @@
 ---
 import Posts from "@/components/Posts.astro";
-import config from "@/config/config.json";
 import Base from "@/layouts/Base.astro";
-import Pagination from "@/layouts/components/Pagination.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { sortByDate } from "@/lib/utils/sortFunctions";
 
-const posts = await getSinglePage("posts");
-const sortedPosts = sortByDate(posts);
-const totalPages = Math.ceil(posts.length / config.settings.pagination);
-const currentPosts = sortedPosts.slice(0, config.settings.pagination);
+const posts = sortByDate(await getSinglePage("posts"));
+const featuredPosts = posts.slice(0, 4);
 ---
 
-<Base>
-  <section class="section">
+<Base title="Zihao Fu" description="Engineer, CS student, and builder.">
+  <section class="section pt-0">
     <div class="container">
-      <Posts posts={currentPosts} className="mb-16" />
-      <Pagination currentPage={1} totalPages={totalPages} />
+      <div class="relative h-[340px] overflow-hidden md:h-[440px]">
+        <img
+          src="/assets/2026-1-15-resources/Tromso/15.avif"
+          alt="Tromso"
+          class="block h-full w-full object-cover"
+        />
+        <p class="absolute left-4 bottom-4 text-sm text-white/75 md:left-6 md:bottom-6">
+          Tromso, taken on Jan,2026
+        </p>
+      </div>
+      <p class="mt-4 text-sm text-text">
+        I also have a mirror site in case GitHub Pages is blocked.
+        <a href="https://mirror.zihaofu245.me" class="text-primary">Visit the mirror</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container">
+      <div class="mb-10 flex items-end justify-between gap-4">
+        <div>
+          <p class="mb-2 text-sm uppercase tracking-[0.22em] text-text">Blog</p>
+          <h2 class="h3">Recent posts</h2>
+        </div>
+        <a href="/blog" class="text-primary">See all posts</a>
+      </div>
+      <Posts posts={featuredPosts} className="mb-0" fluid={false} />
     </div>
   </section>
 </Base>

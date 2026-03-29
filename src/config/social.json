@@ -1,29 +1,24 @@
 {
   "main": [
     {
-      "name": "facebook",
-      "icon": "FaFacebook",
-      "link": "https://www.facebook.com/"
+      "name": "GitHub",
+      "icon": "FaGithub",
+      "link": "https://github.com/ZihaoFU245"
     },
     {
       "name": "X",
       "icon": "FaXTwitter",
-      "link": "https://x.com/"
+      "link": "https://x.com/zihaofu245"
     },
     {
-      "name": "instagram",
-      "icon": "FaInstagram",
-      "link": "https://www.instagram.com/"
-    },
-    {
-      "name": "linkedin",
+      "name": "LinkedIn",
       "icon": "FaLinkedin",
-      "link": "https://www.linkedin.com/"
+      "link": "https://www.linkedin.com/in/zihao-fu-198b02374"
     },
     {
-      "name": "YouTube",
-      "icon": "FaYoutube",
-      "link": "https://www.youtube.com/"
+      "name": "Instagram",
+      "icon": "FaInstagram",
+      "link": "https://www.instagram.com/zihao_fu06"
     }
   ]
 }

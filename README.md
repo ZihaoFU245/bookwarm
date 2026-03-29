@@ -1,116 +1,140 @@
-<h1 align=center>Bookworm Light Astro</h1>
-<p align=center>Bookworm Light is a feature-rich, minimal, highly customizable, easy-to-use free Astro blog theme.</p>
-<h2 align="center"> <a target="_blank" href="https://bookworm-light-astro.vercel.app/" rel="nofollow">👀Demo</a> | <a  target="_blank" href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fbookworm-light-astro.vercel.app%2F&form_factor=desktop">Page Speed (100%)🚀</a>
-</h2>
+# Zihao Fu Site
 
-<p align=center>
-  <a href="https://github.com/withastro/astro/releases/tag/astro%406.0.0-beta.17" alt="Contributors">
-    <img src="https://img.shields.io/static/v1?label=ASTRO&message=6.0%20beta&color=000&logo=astro" />
-  </a>
+Personal site built with Astro.
 
-  <a href="https://github.com/themefisher/bookworm-light-astro/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/themefisher/bookworm-light-astro" alt="license"></a>
+## Local Development
 
-  <img src="https://img.shields.io/github/languages/code-size/themefisher/bookworm-light-astro" alt="code size">
+Install dependencies:
 
-  <a href="https://github.com/themefisher/bookworm-light-astro/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/themefisher/bigspring-light-astro" alt="contributors"></a>
-</p>
-
-![bookworm-light](https://assets.teamosis.com/thumbs/bookworm-light.png)
-
-Bookworm Light is a minimal multi-author free Astro blog theme which is perfect for any kind of blog website. Whether you're interested in food, beauty, travel, photography, lifestyle, fitness, health, or other topics, this theme is a great fit. The theme is super fast and SEO friendly which makes it easier for your content to be discovered by search engines.
-
-## 🔑Key Features
-
-- 🎨 Highly Customizable (Color, Font, Menu, Social Links, SEO Meta Tags, etc.)
-- 👥 Multi-Author Support
-- 📚 Authors Page
-- 👤 Author Single Page
-- 🔍 Search Functionality with FuseJS
-- 🏷️ Tags and Categories Support
-- 📲 Post Social Share Option
-- 🔗 Similar Post Suggestions
-- ⚡ Fast by Default (95+ Google PageSpeed Score)
-- ⚙️ Netlify Settings Pre-configured
-- 📬 Contact Form Support
-- 🌅 Support OG Image
-- ✍️ Write and Update Content in Markdown / MDX
-- 📚 MDX Components Auto Import
-- 📝 Includes Draft Pages and Posts
-- 🚀 Built with Tailwind CSS Framework
-- 📱 Fully Responsive on Desktops, Tablets, and Smartphones
-- 🔍 SEO Friendly
-
-<!-- installation -->
-
-## 🔧Installation
-
-After downloading the template, you have some prerequisites to install. Then you can run it on your localhost. You can view the package.json file to see which scripts are included.
-
-### ⚙️Install prerequisites (once for a machine)
-
-- **Node Installation:** [Install node js](https://nodejs.org/en/download/) [Recommended LTS version]
-
-### 🖥️Local setup
-
-After successfully installing those dependencies, open this template with any IDE [[VS Code](https://code.visualstudio.com/) recommended], and then open the internal terminal of IDM [vs code shortcut <code>ctrl/cmd+\`</code>]
-
-- Install dependencies
-
-```
+```bash
 npm install
 ```
 
-- Run locally
+Start the dev server:
 
-```
+```bash
 npm run dev
 ```
 
-After that, it will open up a preview of the template in your default browser, watch for changes to source files, and live-reload the browser when changes are saved.
+Build the site:
 
-## 🔨Production Build
-
-After finishing all the customization, you can create a production build by running this command.
-
-```
+```bash
 npm run build
 ```
 
-<!-- edit with sitepins -->
+Run Astro checks:
 
-## 📝 Edit Content with CMS
+```bash
+npm run check
+```
 
-This template comes pre-configured with [**Sitepins**](https://sitepins.com), a Git-based Headless CMS designed for seamless content management. You can update your website’s text, images, and configuration without touching a single line of code.
+## Project Structure
 
-**How to get started:**
+`src/pages/`
 
-Click the Edit with Sitepins button below and follow the on-screen instructions to start editing your content visually.
+- Route files for the site.
+- `index.astro` is the homepage.
+- `blog/` contains blog listing, pagination, and single-post routes.
+- `about.astro`, `archive.astro`, and `resume.astro` are standalone pages.
 
-  <a target="_blank" href="https://app.sitepins.com/new/clone?name=Bookworm%20Light%20Astro&repository=https://github.com/themefisher/bookworm-light-astro/">
-    <img src="https://sitepins.com/button.svg" alt="Edit with Sitepins">
-  </a>
-  
-<!-- reporting issue -->
+`src/content/`
 
-## 🐞Reporting Issues
+- Markdown content collections.
+- `posts/` contains blog posts.
+- `about/` contains the about page content.
+- `authors/` contains author metadata.
 
-We use GitHub Issues as the official bug tracker for this Template. Please Search [existing issues](https://github.com/themefisher/bookworm-light-astro/issues). It’s possible someone has already reported the same problem.
-If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/themefisher/bookworm-light-astro/issues).
+`src/content.config.ts`
 
-<!-- licence -->
+- Defines Astro content collections and frontmatter schema.
 
-## 📄License
+`src/config/`
 
-Copyright (c) 2023 - Present, Designed & Developed by [Themefisher](https://themefisher.com)
+- Site-level configuration.
+- `config.json` stores metadata, favicon path, and general site settings.
+- `menu.json` stores navbar and footer links.
+- `social.json` stores social profile links.
 
-**Code License:** Released under the [MIT](https://github.com/themefisher/bookworm-light-astro/blob/main/LICENSE) license.
+`src/layouts/`
 
-**Image license:** The images are only for demonstration purposes. They have their license, we don't have permission to share those images.
+- Shared page layout and partials.
+- `Base.astro` wraps most pages.
+- `partials/` contains header and footer.
+- `components/` contains reusable UI pieces used by pages and layouts.
 
-## 👨‍💻Need Custom Development Services?
+`src/lib/`
 
-Besides developing beautifully designed and blazing-fast themes, we help businesses create fast, performance-focused, scalable & secure websites based on NextJs, Hugo, Astro, etc.
+- Utility code for content parsing, sorting, and markdown behavior.
+- `remarkTocHeadings.mjs` handles custom heading ids like `{#section}` and TOC insertion.
 
-If you need a custom theme, theme customization, or complete website development services from scratch you can [Hire Us](https://themefisher.com/contact).
+`public/`
+
+- Static assets copied as-is at build time.
+- `public/assets/` stores site images, CSS, JS, favicons, and resume files.
+- Do not put generated route HTML here.
+
+## Writing a New Blog Post
+
+1. Create a new Markdown file in `src/content/posts/`.
+   File names become post slugs.
+
+2. Add frontmatter.
+
+```md
+---
+title: My New Post
+description: Short summary for cards and metadata.
+date: 2026-03-29
+image: /assets/path-to-cover-image.jpg
+categories:
+  - general
+authors:
+  - Zihao Fu
+tags:
+  - notes
+draft: false
+---
+```
+
+3. Write the post body in Markdown below the frontmatter.
+
+4. Put any images or downloadable files for the post under `public/assets/`.
+   Example:
+
+```text
+public/assets/2026-03-29-resources/
+```
+
+5. Reference those assets with site-root paths in Markdown.
+
+```md
+![Caption](/assets/2026-03-29-resources/example.jpg)
+```
+
+## Headings And TOC
+
+Custom heading ids are supported:
+
+```md
+## My Section {#my-section}
+```
+
+The `{#my-section}` part is hidden in rendering and becomes the heading id.
+
+TOC insertion is supported with one of these markers:
+
+```md
+[toc]
+```
+
+```md
+[[toc]]
+```
+
+You can also use a `Table of Contents` heading as the insertion point.
+
+## Notes
+
+- `public/` is for static assets only.
+- Route output belongs in `dist/`, not `public/`.
+- Content should live in `src/content/` whenever possible so Astro generates pages from source.

@@ -1,24 +1,24 @@
 {
   "site": {
-    "title": "Bookworm Light Astro | Blog Template",
-    "base_url": "https://bookworm-light-astro.vercel.app",
+    "title": "Zihao Fu",
+    "base_url": "https://zihaofu245.me",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
-    "logo_width": "200",
-    "logo_height": "34",
-    "logo_text": "Bookworm Light"
+    "favicon": "/assets/images/favicons/favicon.ico",
+    "logo": "",
+    "logo_width": "0",
+    "logo_height": "0",
+    "logo_text": "Zihao Fu"
   },
 
   "settings": {
-    "pagination": 5
+    "pagination": 24
   },
 
   "metadata": {
-    "meta_author": "Themefisher",
-    "meta_image": "/images/og-image.png",
-    "meta_description": "Bookworm Light Astro Blog Template"
+    "meta_author": "Zihao Fu",
+    "meta_image": "/assets/images/profile.jpg",
+    "meta_description": "Engineer and CS student writing about systems, infrastructure, learning, and life."
   },
 
   "google_tag_manager": {
@@ -28,12 +28,12 @@
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Copyright © 2025 a theme by [Themefisher](https://themefisher.com)"
+    "copyright": "Copyright © 2026 Zihao Fu"
   },
 
   "contactinfo": {
-    "address": "355 S Grand Ave <br/> Los Angeles, CA 90071",
-    "email": "info@bookworm.org",
-    "phone": "+800 567 1234"
+    "address": "Hong Kong",
+    "email": "zihaofu12@gmail.com",
+    "phone": ""
   }
 }

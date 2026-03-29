@@ -1,0 +1,40 @@
+---
+import Base from "@/layouts/Base.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+import { getCollection } from "astro:content";
+
+const posts = sortByDate(await getCollection("posts"));
+
+const postsByYear = posts.reduce<Record<string, typeof posts>>((acc, post) => {
+  const year = String(post.data.date?.getFullYear() ?? "Unknown");
+  acc[year] ||= [];
+  acc[year].push(post);
+  return acc;
+}, {});
+
+const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
+---
+
+<Base title="Archive" description="Archive of posts.">
+  <section class="section">
+    <div class="container">
+      <h1 class="h2 mb-10">Archive</h1>
+
+      <h2 class="h3 mb-5">Posts By Year</h2>
+      <div class="space-y-10">
+        {years.map((year) => (
+          <section>
+            <h3 class="mb-4 text-2xl font-semibold">{year}</h3>
+            <ul class="space-y-3">
+              {postsByYear[year].map((post) => (
+                <li>
+                  <a href={`/blog/${post.id}`} class="font-semibold hover:text-primary">{post.data.title}</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

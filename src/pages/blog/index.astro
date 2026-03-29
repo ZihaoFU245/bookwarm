@@ -1,0 +1,26 @@
+---
+import Posts from "@/components/Posts.astro";
+import config from "@/config/config.json";
+import Base from "@/layouts/Base.astro";
+import Pagination from "@/layouts/components/Pagination.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+
+const posts = await getSinglePage("posts");
+const sortedPosts = sortByDate(posts);
+const totalPages = Math.ceil(posts.length / config.settings.pagination);
+const currentPosts = sortedPosts.slice(0, config.settings.pagination);
+---
+
+<Base title="Blog" description="Posts on systems, infrastructure, learning, and life.">
+  <section class="section">
+    <div class="container">
+      <blockquote class="mb-8 border-l-4 border-primary pl-4 text-lg text-text">
+        This page is updated frequently.
+      </blockquote>
+      <h1 class="h2 mb-10">Here are all my blogs!</h1>
+      <Posts posts={currentPosts} className="mb-16" />
+      <Pagination section="blog" currentPage={1} totalPages={totalPages} />
+    </div>
+  </section>
+</Base>
