@@ -1,9 +1,9 @@
 ---
 import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
 import { sortByDate } from "@/lib/utils/sortFunctions";
-import { getCollection } from "astro:content";
 
-const posts = sortByDate(await getCollection("posts"));
+const posts = sortByDate(await getSinglePage("posts"));
 
 const postsByYear = posts.reduce<Record<string, typeof posts>>((acc, post) => {
   const year = String(post.data.date?.getFullYear() ?? "Unknown");
