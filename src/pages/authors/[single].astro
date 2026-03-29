@@ -25,6 +25,10 @@ export async function getStaticPaths() {
 const { author } = Astro.props;
 const { title, meta_title, description, image } = author.data;
 
+if (author.id === "zihao-fu") {
+  return Astro.redirect("/");
+}
+
 // Author Posts
 const posts = await getSinglePage("posts");
 const sortPostsByDate: CollectionEntry<"posts">[] = sortByDate(posts);

@@ -34,6 +34,7 @@ draft: false
        width="1000"/>
 
 </div>
+
 **This is my desk! I stuck some photos up to decorate my desk.** [**Photos**](/blog/2025-08-12-summer-ending)
 
 <div class="live-photo"
@@ -50,6 +51,7 @@ draft: false
        width="1000"/>
 
 </div>
+
 **Chemistry Lab Visit**
 
 ## Academic warm‑up

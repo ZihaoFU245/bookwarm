@@ -1,32 +1,18 @@
 ---
 import Posts from "@/components/Posts.astro";
 import Base from "@/layouts/Base.astro";
+import AuthorSingle from "@/partials/AuthorSingle.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { sortByDate } from "@/lib/utils/sortFunctions";
+import { getEntry } from "astro:content";
 
 const posts = sortByDate(await getSinglePage("posts"));
 const featuredPosts = posts.slice(0, 4);
+const author = await getEntry("authors", "zihao-fu");
 ---
 
-<Base title="Zihao Fu" description="Engineer, CS student, and builder.">
-  <section class="section pt-0">
-    <div class="container">
-      <div class="relative h-[340px] overflow-hidden md:h-[440px]">
-        <img
-          src="/assets/2026-1-15-resources/Tromso/15.avif"
-          alt="Tromso"
-          class="block h-full w-full object-cover"
-        />
-        <p class="absolute left-4 bottom-4 text-sm text-white/75 md:left-6 md:bottom-6">
-          Tromso, taken on Jan,2026
-        </p>
-      </div>
-      <p class="mt-4 text-sm text-text">
-        I also have a mirror site in case GitHub Pages is blocked.
-        <a href="https://mirror.zihaofu245.me" class="text-primary">Visit the mirror</a>.
-      </p>
-    </div>
-  </section>
+<Base title="Zihao Fu" description="Engineer and Computer Science student at HKUST.">
+  {author && <AuthorSingle author={author} />}
 
   <section class="section pt-0">
     <div class="container">
