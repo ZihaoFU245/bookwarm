@@ -27,5 +27,6 @@ import { markdownify } from "@/lib/utils/textConverter";
     <Social source={social.main} className="social-icons mb-8" />
     {/* copyright */}
     <p set:html={markdownify(config.params.copyright)} class="text-white/75" />
+    <p set:html={markdownify(config.params.themefiser_copyright)} class="text-white/75" />
   </div>
 </footer>
