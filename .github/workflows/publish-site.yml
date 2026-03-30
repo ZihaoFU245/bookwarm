@@ -45,9 +45,9 @@ jobs:
         run: cp .gitattributes dist/.gitattributes
 
       - name: Publish dist to site branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: site
-          force_orphan: true
+        env:
+          BRANCH: site
+          SITE_DIR: ./dist
+        run: |
+          chmod +x ./publish.sh
+          ./publish.sh
