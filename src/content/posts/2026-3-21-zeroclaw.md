@@ -137,7 +137,7 @@ Alpine linux uses OpenRC init system. First add a dedicated user for zeroclaw.
 
 ```bash
 adduser zeroclaw
-# I should prompt you to enter password
+# It will prompt you to set password
 # Do not give Agent full root permission is a good practice
 ``` 
 
