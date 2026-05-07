@@ -1,0 +1,398 @@
+<!DOCTYPE html><html lang="en"> <head><!-- google tag manager --><!-- favicon --><link rel="shortcut icon" href="/assets/images/favicons/favicon.ico"><!-- theme meta --><meta name="theme-name" content="bookworm-light-astro"><meta name="msapplication-TileColor" content="#000000"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000"><meta name="generator" content="Astro v6.1.7"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- responsive meta --><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"><!-- title --><title>
+      A tunnel module for nginx
+
+    </title><!-- canonical url --><!-- noindex robots --><!-- meta-description --><meta name="description" content="Engineer and CS student writing about systems, infrastructure, learning, and life.
+"><!-- author from config.json --><meta name="author" content="Zihao Fu"><!-- og-title --><meta property="og:title" content="A tunnel module for nginx
+"><!-- og-description --><meta property="og:description" content="Engineer and CS student writing about systems, infrastructure, learning, and life.
+"><meta property="og:type" content="website"><meta property="og:url" content="https://zihaofu245.me/blog/2026-05-05-ngx_tunnel"><!-- twitter-title --><meta name="twitter:title" content="A tunnel module for nginx
+"><!-- twitter-description --><meta name="twitter:description" content="Engineer and CS student writing about systems, infrastructure, learning, and life.
+"><!-- og-image --><meta property="og:image" content="https://zihaofu245.me/assets/2026-05-05-resources/illustration.png"><!-- twitter-image --><meta name="twitter:image" content="https://zihaofu245.me/assets/2026-05-05-resources/illustration.png"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/Base.BEfjS2XV.css"></head> <body>    <header class="header pt-6"> <nav class="navbar container"> <!-- logo --> <div class="order-0"> <a href="/" class="navbar-brand block text-2xl font-semibold text-black"> Zihao Fu </a> </div> <!-- navbar toggler --> <input id="nav-toggle" type="checkbox" class="hidden"> <label id="show-button" for="nav-toggle" class="order-2 flex cursor-pointer items-center text-black md:order-1 md:hidden"> <svg class="h-6 fill-current" viewBox="0 0 20 20"> <title>Menu Open</title> <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path> </svg> </label> <label id="hide-button" for="nav-toggle" class="order-2 hidden cursor-pointer items-center text-black md:order-1"> <svg class="h-6 fill-current" viewBox="0 0 20 20"> <title>Menu Close</title> <polygon points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2" transform="rotate(45 10 10)"></polygon> </svg> </label> <!-- /navbar toggler --> <ul id="nav-menu" class="navbar-nav order-3 hidden w-full md:order-1 md:flex md:w-auto"> <li class="nav-item"> <a href="/" class="nav-link block"> Home </a> </li><li class="nav-item"> <a href="/blog" class="nav-link block"> Blog </a> </li><li class="nav-item"> <a href="/archive" class="nav-link block"> Archive </a> </li><li class="nav-item"> <a href="/about" class="nav-link block"> About </a> </li><li class="nav-item"> <a href="/resume" class="nav-link block"> Resume </a> </li> </ul> <div class="order-1 ml-auto flex md:order-2 md:ml-0"> <a class="mr-4 inline-block cursor-pointer p-2 text-xl text-dark transition hover:text-primary md:mr-0" href="/search" title="seach" aria-label="seach"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M456.69 421.39 362.6 327.3a173.81 173.81 0 0 0 34.84-104.58C397.44 126.38 319.06 48 222.72 48S48 126.38 48 222.72s78.38 174.72 174.72 174.72A173.81 173.81 0 0 0 327.3 362.6l94.09 94.09a25 25 0 0 0 35.3-35.3zM97.92 222.72a124.8 124.8 0 1 1 124.8 124.8 124.95 124.95 0 0 1-124.8-124.8z"></path></svg> </a> </div> </nav> </header> <main id="main-content" class="min-h-[60vh]">  <section class="section"> <div class="container"> <article class="row justify-center"> <div class="md:col-10 text-center"> <h1 class="h2">A tunnel module for nginx</h1> <ul class="mt-4 flex flex-wrap items-center justify-center text-text"> <li class="mx-3"> <a href="/authors/zihao-fu" class="flex items-center hover:text-primary font-medium"> <img src="/assets/images/profile.jpg" alt="Zihao Fu" loading="lazy" decoding="async" width="50" height="50" class="mr-2 h-6 w-6 rounded-full"> <span>Zihao Fu</span> </a> </li> <li class="mx-3 flex items-center flex-wrap font-medium"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="mr-1 h-5 w-5 text-gray-600" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M19 4h-3V2h-2v2h-4V2H8v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zM5 20V7h14V6l.002 14H5z"></path><path d="m15.628 12.183-1.8-1.799 1.37-1.371 1.8 1.799zm-7.623 4.018V18h1.799l4.976-4.97-1.799-1.799z"></path></svg> 05 May, 2026 </li> <li class="mx-3 flex items-center flex-wrap"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="mr-1 h-[18px] w-[18px] text-gray-600" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM9 9H5V5h4v4zm11 4h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1zm-1 6h-4v-4h4v4zM17 3c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2zM7 13c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z"></path></svg> <ul> <li class="inline-block"> <a href="/categories/tech" class="mr-2 hover:text-primary font-medium"> Tech  </a> </li> </ul> </li> </ul> </div> <div class="col-12 mt-8 mb-2"> <img src="/assets/2026-05-05-resources/illustration.png" alt="A tunnel module for nginx" loading="lazy" decoding="async" width="1000" height="500" class="rounded-lg"> </div> <div class="md:col-10"> <div class="content mb-16 text-left"> <p>As shown above, nginx is widely used as a reverse proxy and load balancer, which is the ‘universal’ proxy for the server;
+however, the support for ‘proxy for the client’ is still immature.</p>
+<a href="https://github.com/ZihaoFU245/ngx_http_tunnel_module" target="_blank" rel="noopener">
+  <img src="https://opengraph.githubassets.com/1/ZihaoFU245/ngx_http_tunnel_module" alt="ZihaoFU245/ngx_http_tunnel_module GitHub repository" style="max-width: 50%; border-radius: 8px; border: 1px solid #d0d7de;">
+</a>
+<p><strong>The source code is licensed under a BSD License.</strong></p>
+<hr>
+<h2 id="table-of-contents">Table of contents</h2>
+<nav aria-label="Table of contents" class="toc"><ul><li style="margin-left:0rem"><a href="#what-problem-is-it-solving">What problem is it solving?</a></li><li style="margin-left:1.25rem"><a href="#why-it-exists-what-is-vanilla-nginx-missing">Why it exists? What is vanilla nginx missing?</a></li><li style="margin-left:1.25rem"><a href="#why-proxy_pass-is-not-enough">Why proxy_pass is not enough?</a></li><li style="margin-left:0rem"><a href="#why-it-is-called-a-tunnel-background-knowledge">Why it is called a tunnel? (Background knowledge)</a></li><li style="margin-left:1.25rem"><a href="#what-is-http-connect">What is HTTP CONNECT?</a></li><li style="margin-left:1.25rem"><a href="#difference-between-reverse-proxy-forward-proxy">Difference between reverse proxy, forward proxy</a></li><li style="margin-left:0rem"><a href="#differences-in-implementation">Differences in implementation</a></li><li style="margin-left:2.5rem"><a href="#f5-nginx-tunnel-module">F5 Nginx tunnel module</a></li><li style="margin-left:2.5rem"><a href="#proxy-connect-module-from-alibaba">Proxy connect module from Alibaba</a></li><li style="margin-left:0rem"><a href="#how-it-works-internally">How it works internally?</a></li><li style="margin-left:0rem"><a href="#what-is-the-data-flow-looks-like">What is the data flow looks like?</a></li><li style="margin-left:0rem"><a href="#http2-and-quic-support">HTTP/2 and QUIC support?</a></li><li style="margin-left:0rem"><a href="#extended-connect-including-connect-udp">Extended CONNECT, including connect-udp?</a></li><li style="margin-left:1.25rem"><a href="#what-is-masque-and-capsule-protocol">What is MASQUE and Capsule protocol?</a></li><li style="margin-left:0rem"><a href="#auth-and-acl">Auth and ACL</a></li><li style="margin-left:0rem"><a href="#performance-characteristics">Performance characteristics</a></li><li style="margin-left:0rem"><a href="#known-issues">Known Issues</a></li><li style="margin-left:0rem"><a href="#why-not-use-existing-tools">Why not use existing tools?</a></li><li style="margin-left:0rem"><a href="#usage-example">Usage example</a></li></ul></nav>
+<h2 id="what-problem-is-it-solving">What problem is it solving?</h2>
+<p>This is basically a forward proxy for nginx, supporting the following:</p>
+<ul>
+<li>HTTP/1.1 CONNECT</li>
+<li>HTTP/2 CONNECT</li>
+<li>HTTP/3, CONNECT over QUIC</li>
+<li>CONNECT can co-exist with other HTTP methods</li>
+<li>Probe resistance</li>
+<li>Proxy Authentication</li>
+<li>Map based ACL</li>
+<li>Naive style padding protocol</li>
+</ul>
+<p>WIP:</p>
+<ul>
+<li>Extended CONNECT, including connect-udp</li>
+</ul>
+<h3 id="why-it-exists-what-is-vanilla-nginx-missing">Why it exists? What is vanilla nginx missing?</h3>
+<p>You can use the nginx upstream module to achieve an HTTP forward proxy, but that is limited to HTTP/1.1.
+As for the vanilla nginx tunnel module, it is simply a wrapper around the upstream module, by setting <code>u->upgrade</code>
+internally.</p>
+<p>An example config to achieve this:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="nginx"><code><span class="line"><span style="color:#C678DD">server</span><span style="color:#ABB2BF"> {</span></span>
+<span class="line"><span style="color:#C678DD">  listen </span><span style="color:#ABB2BF">...;</span></span>
+<span class="line"><span style="color:#C678DD">  resolver </span><span style="color:#ABB2BF">...;</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">  # Some SSL settings</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">  location</span><span style="color:#ABB2BF"> / {</span></span>
+<span class="line"><span style="color:#C678DD">    proxy_pass </span><span style="color:#ABB2BF">http://$</span><span style="color:#E06C75">http_host</span><span style="color:#ABB2BF">$</span><span style="color:#E06C75">uri</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"><span style="color:#C678DD">    proxy_http_version </span><span style="color:#D19A66">1.1</span><span style="color:#ABB2BF">;     </span><span style="color:#7F848E;font-style:italic"># Since Nginx 1.29.7, this is default</span></span>
+<span class="line"><span style="color:#C678DD">    proxy_set_header </span><span style="color:#ABB2BF">Upgrade $</span><span style="color:#E06C75">http_upgrade</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"><span style="color:#C678DD">    proxy_set_header </span><span style="color:#ABB2BF">Connection </span><span style="color:#98C379">"Upgrade"</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"><span style="color:#C678DD">    proxy_set_header </span><span style="color:#ABB2BF">Host $</span><span style="color:#E06C75">http_host</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"><span style="color:#ABB2BF">  }</span></span>
+<span class="line"><span style="color:#ABB2BF">}</span></span></code></pre>
+<p>This is commonly used for Websocket proxying, here are the 3 phases:</p>
+<ul>
+<li>
+<p>Phase 1: The client sends, for example, a GET request. Nginx receives it, sets the upgrade header,
+and proxies it to the upstream.</p>
+</li>
+<li>
+<p>Phase 2: The upstream server sends 101, and the connection upgrades. Nginx stops parsing HTTP requests.</p>
+</li>
+<li>
+<p>Phase 3: At this point, Nginx is simply doing TCP bidirectional byte relay.</p>
+</li>
+</ul>
+<p><strong>Comparing to CONNECT</strong></p>
+<p>For HTTP/1.1 CONNECT, client sends:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="http"><code><span class="line"><span style="color:#C678DD">CONNECT</span><span style="color:#ABB2BF"> example.com:443 </span><span style="color:#C678DD">HTTP</span><span style="color:#ABB2BF">/</span><span style="color:#D19A66">1.1</span></span>
+<span class="line"><span style="color:#E06C75">Host</span><span style="color:#C678DD">:</span><span style="color:#98C379"> example.com:443</span></span></code></pre>
+<p>The vanilla Nginx tunnel module parses it, then sets up the upstream and sets <code>ignore_input</code> and <code>u->upgrade</code> to 1.
+The official module can open a TCP byte relay for client but it lacks support over H2 and QUIC. This is
+where my module does, it adds support for CONNECT over h2 and h3. CONNECT over h2/h3 is a huge benefit; it
+can use multiplexing, only uses 1 TCP/QUIC connection for multiple connect requests, binary framing makes parsing
+faster, and 0-RTT for h3.</p>
+<blockquote class="callout callout-note" data-callout="note">
+<p class="callout-title">NOTE</p>
+<p>0-RTT, TCP fast open can’t be done if padding is used, defined by naiveproxy.</p>
+</blockquote>
+<h3 id="why-proxy_pass-is-not-enough">Why <code>proxy_pass</code> is not enough?</h3>
+<p><code>proxy_pass</code> uses nginx http upstream module, it is mainly used for HTTP reverse proxying,
+CONNECT is different; it requires a raw byte tunnel, which is similar to some features in the nginx stream
+upstream module. That means the tunnel module cannot be simply done by reusing the http upstream
+module; it either handles the byte relay manually or does surgical changes to the http upstream module.
+In my implementation, I only used http upstream module to open a connection to upstream, then
+handle byte relay myself, similar to what the stream upstream module did internally. This makes minimal
+changes to nginx core.</p>
+<h2 id="why-it-is-called-a-tunnel-background-knowledge">Why it is called a tunnel? (Background knowledge)</h2>
+<p>Tunnel by definition in this context is to establish a secure, private communication path
+between 2 points over a public network. This module’s goal is to establish a byte relay
+connection between the client and nginx server. The security is guarded by the user’s nginx
+configuration, i.e. SSL support.</p>
+<h3 id="what-is-http-connect">What is HTTP CONNECT?</h3>
+<p><strong>HTTP CONNECT</strong> is a technique used to establish a secure, direct TCP tunnel through
+an HTTP proxy server. It is often used to tunnel other protocols, like https tunneling,
+TCP/UDP tunneling.</p>
+<p>The CONNECT method differs in HTTP/1.1 and H2/H3.</p>
+<p>In HTTP/1.1, CONNECT is commonly sent as:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="http"><code><span class="line"><span style="color:#C678DD">CONNECT</span><span style="color:#ABB2BF"> example.com:443 </span><span style="color:#C678DD">HTTP</span><span style="color:#ABB2BF">/</span><span style="color:#D19A66">1.1</span></span>
+<span class="line"><span style="color:#E06C75">Host</span><span style="color:#C678DD">:</span><span style="color:#98C379"> example.com:443</span></span></code></pre>
+<p>In h2/h3 it looks like this:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="http"><code><span class="line"><span style="color:#ABB2BF">:method: CONNECT</span></span>
+<span class="line"><span style="color:#ABB2BF">:authority: example.com:443</span></span></code></pre>
+<p>There is an extended connect request, <code>connect-udp</code>, looks like this:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="http"><code><span class="line"><span style="color:#ABB2BF">:method: CONNECT</span></span>
+<span class="line"><span style="color:#ABB2BF">:protocol: connect-udp</span></span>
+<span class="line"><span style="color:#ABB2BF">:scheme: https</span></span>
+<span class="line"><span style="color:#ABB2BF">:authority: proxy.example.com</span></span>
+<span class="line"><span style="color:#ABB2BF">:path: /.well-known/masque/udp/{</span><span style="color:#FFFFFF">target_host</span><span style="color:#ABB2BF">}/{</span><span style="color:#FFFFFF">target_port</span><span style="color:#ABB2BF">}/</span></span>
+<span class="line"><span style="color:#ABB2BF">capsule-protocol: ?</span><span style="color:#D19A66">1</span></span></code></pre>
+<p>Defined by RFC 9298 and RFC 9297 for the capsule protocol.</p>
+<h3 id="difference-between-reverse-proxy-forward-proxy">Difference between reverse proxy, forward proxy</h3>
+<p>The difference between reverse proxy and forward proxy is who the server
+is a proxy for. Reverse proxy is for servers, and forward proxy is for
+clients.</p>
+<p>This tunnel module is a forward proxy, a proxy for the clients.</p>
+<h2 id="differences-in-implementation">Differences in implementation</h2>
+<h4 id="f5-nginx-tunnel-module"><a href="https://nginx.org/en/docs/http/ngx_http_tunnel_module.html">F5 Nginx tunnel module</a></h4>
+<p>This module is included in nginx paid version as an addon. While in nginx-1.31 roadmap,
+it will be moved from paid version to nginx OSS.</p>
+<p>It is still unclear as of May 5, 2026, whether it will add support for connect
+over h2 and h3.</p>
+<p>The source code of this module can be found on an ongoing PR
+in nginx oss repo, <a href="https://github.com/nginx/nginx/pull/707">here</a>. The code
+quality without a doubt is high, as it is written by nginx maintainers.</p>
+<p>I read this implementation and adopted the idea of using the upstream module
+for initializing the request to the target. This avoids manual hostname resolution
+and creating an upstream round robin peer. It saved a lot of work for async DNS
+resolution and eliminated the likelihood of making an error. My module’s HTTP/1.1
+is aligned with this version.</p>
+<p><strong>Where I still handled myself</strong></p>
+<ul>
+<li>Proxy Authenticate: Because of the need for probe resistance. Probe resistance,
+this idea is from caddy’s forward proxy.</li>
+</ul>
+<h4 id="proxy-connect-module-from-alibaba"><a href="https://github.com/chobits/ngx_http_proxy_connect_module">Proxy connect module from Alibaba</a></h4>
+<p>This one is a community-maintained version of forward proxy; the copyright
+shows it is from Alibaba group.</p>
+<p><strong>What is the problem of this module? And why I don’t like it.</strong></p>
+<ol>
+<li>
+<p>Consider the 11 phases of nginx<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>. This module is registered at
+<strong>NGX_HTTP_POST_READ_PHASE</strong>. It checks whether connect is allowed before
+rewrite phases. However, nginx core internally exposed a flag <code>allow_connect</code>
+in core parsing. This handler is no longer needed.</p>
+</li>
+<li>
+<p>Bypass Rewrite phase decision. Eg. <code>location / {return 403;}</code>, if this is intended
+to return 403 for all requests, the post phase handler would bypass it and may return 405.</p>
+</li>
+<li>
+<p>Not actively maintained anymore; it has been 2 years since the last commit.
+It may have compatibility issues with mainline nginx.</p>
+</li>
+</ol>
+<p>As a result, I did not take too much inspiration from this module; it only
+showed me a way to handle connect, but it definitely is not optimal.</p>
+<h2 id="how-it-works-internally">How it works internally?</h2>
+<p>The module registers 3 phase handlers.</p>
+<ol>
+<li>Pre-Access Phase Handler</li>
+</ol>
+<ul>
+<li>Proxy-Authenticate checking</li>
+<li>Access Control List matching</li>
+<li>Set content phase handler</li>
+</ul>
+<ol start="2">
+<li>Pre-Content Phase Handler</li>
+</ol>
+<ul>
+<li>Skip pre content phases</li>
+</ul>
+<ol start="3">
+<li>Content Phase Handler</li>
+</ol>
+<ul>
+<li>Init upstream (by nginx upstream module)</li>
+<li>Send 200</li>
+<li>Establish tunnel</li>
+</ul>
+<p>Regarding why the pre-content phase handler is needed, the tunnel module can work fine without it.
+The Pre-Access Phase sets the content phase handler for that request. It is for scenarios like <code>try_files</code>
+and <code>proxy_pass</code>. They live in pre-content phase. If tunnel module appears first in the configuration,
+its pre-content phase handler runs first, and it can skip the entire phase, without executing
+<code>try_files</code> or <code>proxy_pass</code>.</p>
+<h2 id="what-is-the-data-flow-looks-like">What is the data flow looks like?</h2>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="txt"><code><span class="line"><span>+-------------------+       +----------------------+      +-----------------+</span></span>
+<span class="line"><span>|                   |       |                      |  NO  |                 |</span></span>
+<span class="line"><span>| Request hit nginx |  ==>  | Is request CONNECT?  |  ==> | Module Declines |</span></span>
+<span class="line"><span>|                   |       |                      |      |                 |</span></span>
+<span class="line"><span>+-------------------+       +----------------------+      +-----------------+</span></span>
+<span class="line"><span>                                       || YES</span></span>
+<span class="line"><span>                                       \/</span></span>
+<span class="line"><span>                            +---------------------+        +------------------+</span></span>
+<span class="line"><span>                            | ( PreAccess Phase ) |  FAIL  |                  |</span></span>
+<span class="line"><span>              ============  | Auth &#x26; ACL checking |  ====> | Finalize Request |</span></span>
+<span class="line"><span>              ||            |                     |        |                  |</span></span>
+<span class="line"><span>              \/            +---------------------+        +------------------+</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span> +--------------------------+                      +------------------+</span></span>
+<span class="line"><span> |     ( Content Phase )    | (Reject or timeout)  |                  |</span></span>
+<span class="line"><span> | Init upstream connection | ===================> | Finalize Request |</span></span>
+<span class="line"><span> |                          |                      |                  |</span></span>
+<span class="line"><span> +--------------------------+                      +------------------+</span></span>
+<span class="line"><span>              ||</span></span>
+<span class="line"><span>              \/</span></span>
+<span class="line"><span>        (Start Tunnel)</span></span></code></pre>
+<p>This is a simple illustration for module entry. For more internal details, check the README
+and source code in the repo.</p>
+<h2 id="http2-and-quic-support">HTTP/2 and QUIC support?</h2>
+<p>Both of them are supported. The module relies on nginx existing code, so it benefits from
+nginx excellent http2 and quic implementation.</p>
+<p>Though quic throughput may not behave as well as http2 does, I still recommend using this module with
+h2.</p>
+<h2 id="extended-connect-including-connect-udp">Extended CONNECT, including connect-udp?</h2>
+<p>This is still a WIP feature; the capsule parsing section is now finished.</p>
+<h3 id="what-is-masque-and-capsule-protocol">What is MASQUE and Capsule protocol?</h3>
+<p>MASQUE encodes target host and port in the path; it can be in the following form:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="txt"><code><span class="line"><span>/.well-known/masque/{target_host}/{target_port}/</span></span>
+<span class="line"><span>/masque?h={target_host}&#x26;p={target_port}</span></span>
+<span class="line"><span>/masque{?target_host,target_port}</span></span></code></pre>
+<p>These are all valid MASQUE queries, which can be done with regex matching from the back
+of the URI. With MASQUE, the authority field can be left as the proxy server’s hostname; this
+allows it to pass through a CDN, like cloudflare.</p>
+<p>Capsule protocol is used with “connect-udp”; it must be present both in client request
+headers and server response headers. Defined as <code>Capsule-Protocol: ?1</code>. The capsule allows
+DATAGRAMs encoded in HTTP payload in the form of:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="txt"><code><span class="line"><span>+--------------------+------------------------------+----------+</span></span>
+<span class="line"><span>|                    |                              |          |</span></span>
+<span class="line"><span>| Type (QUIC varint) | Payload length (QUIC varint) | DATAGRAM |</span></span>
+<span class="line"><span>|       (0x00)       |                              |          |</span></span>
+<span class="line"><span>+--------------------+------------------------------+----------+</span></span></code></pre>
+<p>The DATAGRAM usually contains a Context ID in the front, for datagrams this value
+is a fixed <code>0x00</code>.</p>
+<p>The above definitions can be found in the RFC, <a href="https://www.rfc-editor.org/rfc/rfc9298.html">connect-udp</a></p>
+<h2 id="auth-and-acl">Auth and ACL</h2>
+<p>Auth: Standard Proxy-Authenticate</p>
+<p>ACL: Utilize nginx maps</p>
+<p>The module exposes a variable called <code>$connect_target_host</code>. In h2/h3, this is equivalent to <code>$request_uri</code>,
+but in HTTP/1.1, there is no <code>:authority</code> header, which is why introducing a specific variable is clearer.</p>
+<p><code>$connect_target_host</code> is the raw target host in a string the client wants to connect to. It can be an IP, or hostnames,
+or even hostname:port.</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="txt"><code><span class="line"><span>map $connect_target_host $is_granted {</span></span>
+<span class="line"><span>    default              1;             # 1 for allow</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    example.com          0;             # 0 for deny</span></span>
+<span class="line"><span>}</span></span></code></pre>
+<p>The mapped value can range from 0 to 3. 0/1 for deny/allow and 2/3 for deny/allow with explicit logging.</p>
+<blockquote class="callout callout-tip" data-callout="tip">
+<p class="callout-title">TIP</p>
+<p>If you are using a huge map, try to use sub maps to standardize it into IP or hostname without ports. Then map
+to <code>$is_granted</code>, this maintains O(1) speed. If regex is in the huge map, it will be O(n).</p>
+</blockquote>
+<h2 id="performance-characteristics">Performance characteristics</h2>
+<p>The module is written in C. It is targeted for best performance under load.
+Performance can be affected by configurations, in theory, it should be excellent. But
+I still need to do testing and serious comparison with caddy, go based module.</p>
+<h2 id="known-issues">Known Issues</h2>
+<ol>
+<li>It is observed that the memory pool is only destroyed when the client connection is finalized.
+For a long-running client, the memory may stack up and be released only when the connection
+is closed. I will be making improvements to the module and try to eliminate this behaviour.</li>
+</ol>
+<h2 id="why-not-use-existing-tools">Why not use existing tools?</h2>
+<p>Existing tools list:</p>
+<ol>
+<li>Caddy forward proxy</li>
+<li>HA proxy</li>
+</ol>
+<p>These are 2 major tools commonly used. Both of them are mature and excellent.
+Use the nginx module for the nginx ecosystem. This module’s h2 and quic fingerprints
+will match exactly with any nginx server. And nginx has a large market share in
+web servers, which is considered a good camouflage.</p>
+<h2 id="usage-example">Usage example</h2>
+<p>See module README. Example config below:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="nginx"><code><span class="line"><span style="color:#C678DD">load_module </span><span style="color:#ABB2BF">ngx_http_tunnel_module.so;  </span><span style="color:#7F848E;font-style:italic"># If build as an dynamic module</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">user </span><span style="color:#ABB2BF">www-data;</span></span>
+<span class="line"><span style="color:#C678DD">worker_processes </span><span style="color:#ABB2BF">auto;</span></span>
+<span class="line"><span style="color:#C678DD">worker_cpu_affinity </span><span style="color:#ABB2BF">auto;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">events</span><span style="color:#ABB2BF"> {</span></span>
+<span class="line"><span style="color:#C678DD">	worker_connections </span><span style="color:#D19A66">1024</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"><span style="color:#ABB2BF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">http</span><span style="color:#ABB2BF"> {</span></span>
+<span class="line"><span style="color:#C678DD">	tcp_nopush </span><span style="color:#D19A66">on</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"><span style="color:#C678DD">	tcp_nodelay </span><span style="color:#D19A66">on</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"><span style="color:#C678DD">	server_tokens </span><span style="color:#D19A66">off</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">    # If you are using with a file server</span></span>
+<span class="line"><span style="color:#C678DD">    sendfile </span><span style="color:#D19A66">on</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"><span style="color:#C678DD">	include </span><span style="color:#ABB2BF">mime.types;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">	ssl_protocols </span><span style="color:#ABB2BF">TLSv1.2 TLSv1.3;</span></span>
+<span class="line"><span style="color:#C678DD">	ssl_prefer_server_ciphers </span><span style="color:#D19A66">off</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">	limit_conn_zone </span><span style="color:#ABB2BF">$</span><span style="color:#E06C75">binary_remote_addr</span><span style="color:#ABB2BF"> zone=addr:1m;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">	# ---------------------------------------------</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">	# A map is used in ACL for O(1) lookup,</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">	# $connect_target_host variable provides raw</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">	# authority header, it is your job to regex</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">	# match these authority headers. Test the ACL</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">	# before production, some clients put authority</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">	# as raw ip, raw host, or even host:port.</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">	# This can be tricky, be careful!</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">	#</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">	# Allowed mapping values:</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">	# 0/1: deny/allow</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">	# 2/3: deny/allow + logging</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">	#</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">	# Example:</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">	# Blocking a single hostname:</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">	# ~^example\.com(:[0-9]+)?$</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">	# --------------------------------------------</span></span>
+<span class="line"><span style="color:#C678DD">	map</span><span style="color:#ABB2BF"> $</span><span style="color:#E06C75;font-style:italic">connect_target_host</span><span style="color:#ABB2BF"> $</span><span style="color:#E06C75">is_granted</span><span style="color:#ABB2BF"> {</span></span>
+<span class="line"><span style="color:#D19A66">		default</span><span style="color:#D19A66"> 1</span><span style="color:#ABB2BF">;								</span><span style="color:#7F848E;font-style:italic"># default allow</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#ABB2BF">		~(</span><span style="color:#E06C75">^|:)fr\.a2dfp\.net(:|$</span><span style="color:#ABB2BF">)       </span><span style="color:#D19A66">0</span><span style="color:#ABB2BF">;		</span><span style="color:#7F848E;font-style:italic"># deny</span></span>
+<span class="line"><span style="color:#ABB2BF">		~(</span><span style="color:#E06C75">^|:)static\.a-ads\.com(:|$</span><span style="color:#ABB2BF">)   </span><span style="color:#D19A66">2</span><span style="color:#ABB2BF">;		</span><span style="color:#7F848E;font-style:italic"># deny + log</span></span>
+<span class="line"><span style="color:#ABB2BF">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">	server</span><span style="color:#ABB2BF"> {</span></span>
+<span class="line"><span style="color:#C678DD">		listen </span><span style="color:#ABB2BF">0.0.0.0:443 ssl;</span></span>
+<span class="line"><span style="color:#C678DD">		listen </span><span style="color:#ABB2BF">0.0.0.0:443 quic reuseport;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">		server_name </span><span style="color:#ABB2BF">example.com;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">		http2 </span><span style="color:#D19A66">on</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"><span style="color:#C678DD">        http3 </span><span style="color:#D19A66">on</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"><span style="color:#C678DD">        http3_max_concurrent_streams </span><span style="color:#D19A66">128</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"><span style="color:#C678DD">        http3_stream_buffer_size </span><span style="color:#D19A66">128k</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"><span style="color:#C678DD">        quic_gso </span><span style="color:#D19A66">on</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">		add_header </span><span style="color:#ABB2BF">Alt-Svc </span><span style="color:#98C379">'h3=":443"; ma=86400'</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">		limit_conn </span><span style="color:#ABB2BF">addr </span><span style="color:#D19A66">100</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"><span style="color:#C678DD">		limit_conn_status </span><span style="color:#D19A66">429</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">		client_body_buffer_size </span><span style="color:#D19A66">256k</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"><span style="color:#C678DD">		client_max_body_size </span><span style="color:#D19A66">16M</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">		resolver </span><span style="color:#D19A66">1.1.1.1</span><span style="color:#D19A66"> 8.8.8.8</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">		ssl_certificate </span><span style="color:#ABB2BF"> fullchain.pem;</span></span>
+<span class="line"><span style="color:#C678DD">		ssl_certificate_key </span><span style="color:#ABB2BF">privkey.pem;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#ABB2BF">		tunnel_pass;                        	</span><span style="color:#7F848E;font-style:italic"># Enable tunnel module</span></span>
+<span class="line"><span style="color:#C678DD">		tunnel_buffer_size</span><span style="color:#D19A66"> 2M</span><span style="color:#ABB2BF">;              	</span><span style="color:#7F848E;font-style:italic"># Buffer size for tunnel relay</span></span>
+<span class="line"><span style="color:#C678DD">		tunnel_proxy_auth_user_file</span><span style="color:#ABB2BF"> /path/to/.htaccess;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">		# off: auth failures return 407</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">		# on: auth failures return 405 like nginx method rejection</span></span>
+<span class="line"><span style="color:#C678DD">		tunnel_probe_resistance</span><span style="color:#D19A66"> off</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">		# Empty by default, matching nginx core CONNECT rejection:</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">		# Set this unless you know what you are doing</span></span>
+<span class="line"><span style="color:#C678DD">		tunnel_probe_resistance_allow_methods</span><span style="color:#98C379"> ""</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">        tunnel_padding</span><span style="color:#D19A66"> off</span><span style="color:#ABB2BF">;                 	</span><span style="color:#7F848E;font-style:italic"># Opt in padding scheme for h2/h3</span></span>
+<span class="line"><span style="color:#C678DD">        tunnel_connect_timeout</span><span style="color:#D19A66"> 60s</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"><span style="color:#C678DD">		tunnel_idle_timeout</span><span style="color:#D19A66"> 30s</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">		# 0: deny, 1: allow, 2: deny + log, 3: allow + log.</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">		# $connect_target_host is the raw CONNECT authority.</span></span>
+<span class="line"><span style="color:#C678DD">		tunnel_acl_eval_on</span><span style="color:#ABB2BF"> $</span><span style="color:#E06C75">is_granted</span><span style="color:#ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">		# location blocks are recommended to set after</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">		# tunnel configurations, as tunnel module</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">		# injects a pre-content phase handler to skip</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">		# try_files and proxy_pass directive.</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">		# do not use return here, as it is in rewrite phase,</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">		# it will skip tunnel handler. This is a design decision.</span></span>
+<span class="line"><span style="color:#C678DD">		location</span><span style="color:#ABB2BF"> / {</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">			# A file server example</span></span>
+<span class="line"><span style="color:#C678DD">		    root </span><span style="color:#ABB2BF">/var/www/html;</span></span>
+<span class="line"><span style="color:#C678DD">			index </span><span style="color:#ABB2BF">index.html;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">			# To avoid The Discriminative Power of Cross-layer</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">			# RTTs in Fingerprinting Proxy Traffic</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">			# It is recommended to either proxy_pass to a server</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">			# running on the same nginx instance or</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">			# run a file server here directly.</span></span>
+<span class="line"><span style="color:#ABB2BF">		}</span></span>
+<span class="line"><span style="color:#ABB2BF">    }</span></span>
+<span class="line"><span style="color:#ABB2BF">}</span></span></code></pre>
+<hr>
+<hr>
+<p><strong>Nginx® and the Nginx logo are trademarks of F5, Inc.. All rights reserved. This website is not affiliated with or endorsed by F5 or the Nginx project.</strong></p>
+<p><strong>The image “illustration.png” was generated using OpenAI Image 2 and is used for illustrative purposes only.</strong></p>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p>HTTP Phases in nginx internal: <a href="https://nginx.org/en/docs/dev/development_guide.html#http_phases">https://nginx.org/en/docs/dev/development_guide.html#http_phases</a> <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section> </div> <div class="flex flex-wrap items-center justify-between"> <ul class="mr-4 mb-4 space-x-3"> <li class="inline-block"> <a href="/tags/others" class="block rounded-lg bg-light px-4 py-2 font-semibold text-dark text-sm hover:text-primary transition duration-300">
+#Others </a> </li> </ul> <ul class="social-share mb-4"> <li class="inline-block"> <a aria-label="facebook share button" href="https://facebook.com/sharer/sharer.php?u=https://zihaofu245.me/2026-05-05-ngx_tunnel" target="_blank" rel="noreferrer noopener"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M480 257.35c0-123.7-100.3-224-224-224s-224 100.3-224 224c0 111.8 81.9 204.47 189 221.29V322.12h-56.89v-64.77H221V208c0-56.13 33.45-87.16 84.61-87.16 24.51 0 50.15 4.38 50.15 4.38v55.13H327.5c-27.81 0-36.51 17.26-36.51 35v42h62.12l-9.92 64.77H291v156.54c107.1-16.81 189-109.48 189-221.31z"></path></svg> </a> </li> <li class="inline-block"> <a aria-label="twitter share button" href="https://twitter.com/intent/tweet/?text=A tunnel module for nginx&#38;amp;url=https://zihaofu245.me/2026-05-05-ngx_tunnel" target="_blank" rel="noreferrer noopener"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M496 109.5a201.8 201.8 0 0 1-56.55 15.3 97.51 97.51 0 0 0 43.33-53.6 197.74 197.74 0 0 1-62.56 23.5A99.14 99.14 0 0 0 348.31 64c-54.42 0-98.46 43.4-98.46 96.9a93.21 93.21 0 0 0 2.54 22.1 280.7 280.7 0 0 1-203-101.3A95.69 95.69 0 0 0 36 130.4c0 33.6 17.53 63.3 44 80.7A97.5 97.5 0 0 1 35.22 199v1.2c0 47 34 86.1 79 95a100.76 100.76 0 0 1-25.94 3.4 94.38 94.38 0 0 1-18.51-1.8c12.51 38.5 48.92 66.5 92.05 67.3A199.59 199.59 0 0 1 39.5 405.6a203 203 0 0 1-23.5-1.4A278.68 278.68 0 0 0 166.74 448c181.36 0 280.44-147.7 280.44-275.8 0-4.2-.11-8.4-.31-12.5A198.48 198.48 0 0 0 496 109.5z"></path></svg> </a> </li> <li class="inline-block"> <a aria-label="linkedin share button" href="https://www.linkedin.com/shareArticle?mini=true&#38;url=https://zihaofu245.me/2026-05-05-ngx_tunnel&#38;title=A tunnel module for nginx&#38;summary=undefined&#38;source=https://zihaofu245.me" target="_blank" rel="noreferrer noopener"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M444.17 32H70.28C49.85 32 32 46.7 32 66.89v374.72C32 461.91 49.85 480 70.28 480h373.78c20.54 0 35.94-18.21 35.94-38.39V66.89C480.12 46.7 464.6 32 444.17 32zm-273.3 373.43h-64.18V205.88h64.18zM141 175.54h-.46c-20.54 0-33.84-15.29-33.84-34.43 0-19.49 13.65-34.42 34.65-34.42s33.85 14.82 34.31 34.42c-.01 19.14-13.31 34.43-34.66 34.43zm264.43 229.89h-64.18V296.32c0-26.14-9.34-44-32.56-44-17.74 0-28.24 12-32.91 23.69-1.75 4.2-2.22 9.92-2.22 15.76v113.66h-64.18V205.88h64.18v27.77c9.34-13.3 23.93-32.44 57.88-32.44 42.13 0 74 27.77 74 87.64z"></path></svg> </a> </li> <li class="inline-block"> <a aria-label="pinterest share button" href="https://pinterest.com/pin/create/button/?url=https://zihaofu245.me/2026-05-05-ngx_tunnel&#38;media=&#38;description=undefined" target="_blank" rel="noreferrer noopener"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256.05 32c-123.7 0-224 100.3-224 224 0 91.7 55.2 170.5 134.1 205.2-.6-15.6-.1-34.4 3.9-51.4 4.3-18.2 28.8-122.1 28.8-122.1s-7.2-14.3-7.2-35.4c0-33.2 19.2-58 43.2-58 20.4 0 30.2 15.3 30.2 33.6 0 20.5-13.1 51.1-19.8 79.5-5.6 23.8 11.9 43.1 35.4 43.1 42.4 0 71-54.5 71-119.1 0-49.1-33.1-85.8-93.2-85.8-67.9 0-110.3 50.7-110.3 107.3 0 19.5 5.8 33.3 14.8 43.9 4.1 4.9 4.7 6.9 3.2 12.5-1.1 4.1-3.5 14-4.6 18-1.5 5.7-6.1 7.7-11.2 5.6-31.3-12.8-45.9-47-45.9-85.6 0-63.6 53.7-139.9 160.1-139.9 85.5 0 141.8 61.9 141.8 128.3 0 87.9-48.9 153.5-120.9 153.5-24.2 0-46.9-13.1-54.7-27.9 0 0-13 51.6-15.8 61.6-4.7 17.3-14 34.5-22.5 48a225.13 225.13 0 0 0 63.5 9.2c123.7 0 224-100.3 224-224S379.75 32 256.05 32z"></path></svg> </a> </li> </ul> </div> </div> </article> </div> </section> <!-- similar posts -->   </main> <footer class="section bg-dark"> <div class="container text-center">  <ul class="mb-8 space-x-4"> <li class="inline-block"> <a href="/" class="p-4 text-white/75 hover:text-white transition-all"> Home </a> </li><li class="inline-block"> <a href="/blog" class="p-4 text-white/75 hover:text-white transition-all"> Blog </a> </li><li class="inline-block"> <a href="/archive" class="p-4 text-white/75 hover:text-white transition-all"> Archive </a> </li><li class="inline-block"> <a href="/about" class="p-4 text-white/75 hover:text-white transition-all"> About </a> </li><li class="inline-block"> <a href="/resume" class="p-4 text-white/75 hover:text-white transition-all"> Resume </a> </li> </ul>  <ul class="social-icons mb-8"> <li> <a aria-label="GitHub" href="https://github.com/ZihaoFU245" target="_blank" rel="noopener noreferrer nofollow"> <span class="sr-only">GitHub</span> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" class="inline-block" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> </a> </li><li> <a aria-label="X" href="https://x.com/zihaofu245" target="_blank" rel="noopener noreferrer nofollow"> <span class="sr-only">X</span> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="inline-block" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg> </a> </li><li> <a aria-label="LinkedIn" href="https://www.linkedin.com/in/zihao-fu-198b02374" target="_blank" rel="noopener noreferrer nofollow"> <span class="sr-only">LinkedIn</span> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="inline-block" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg> </a> </li><li> <a aria-label="Instagram" href="https://www.instagram.com/zihao_fu06" target="_blank" rel="noopener noreferrer nofollow"> <span class="sr-only">Instagram</span> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="inline-block" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg> </a> </li> </ul>  <p class="text-white/75">Copyright © 2026 Zihao Fu</p> <p class="text-white/75">Copyright (c) 2023 - Present, Themefisher</p> </div> </footer> </body></html>
