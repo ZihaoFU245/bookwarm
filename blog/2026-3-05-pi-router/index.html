@@ -1,0 +1,581 @@
+<!DOCTYPE html><html lang="en"> <head><!-- google tag manager --><!-- favicon --><link rel="shortcut icon" href="/assets/images/favicons/favicon.ico"><!-- theme meta --><meta name="theme-name" content="bookworm-light-astro"><meta name="msapplication-TileColor" content="#000000"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000"><meta name="generator" content="Astro v6.1.7"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- responsive meta --><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"><!-- title --><title>
+      DIY Raspberry Pi router tutorial (MT7925)
+
+    </title><!-- canonical url --><!-- noindex robots --><!-- meta-description --><meta name="description" content="Engineer and CS student writing about systems, infrastructure, learning, and life.
+"><!-- author from config.json --><meta name="author" content="Zihao Fu"><!-- og-title --><meta property="og:title" content="DIY Raspberry Pi router tutorial (MT7925)
+"><!-- og-description --><meta property="og:description" content="Engineer and CS student writing about systems, infrastructure, learning, and life.
+"><meta property="og:type" content="website"><meta property="og:url" content="https://zihaofu245.me/blog/2026-3-05-pi-router"><!-- twitter-title --><meta name="twitter:title" content="DIY Raspberry Pi router tutorial (MT7925)
+"><!-- twitter-description --><meta name="twitter:description" content="Engineer and CS student writing about systems, infrastructure, learning, and life.
+"><!-- og-image --><meta property="og:image" content="https://zihaofu245.me/assets/2026-03-05-resources/5.jpeg"><!-- twitter-image --><meta name="twitter:image" content="https://zihaofu245.me/assets/2026-03-05-resources/5.jpeg"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/Base.BEfjS2XV.css"></head> <body>    <header class="header pt-6"> <nav class="navbar container"> <!-- logo --> <div class="order-0"> <a href="/" class="navbar-brand block text-2xl font-semibold text-black"> Zihao Fu </a> </div> <!-- navbar toggler --> <input id="nav-toggle" type="checkbox" class="hidden"> <label id="show-button" for="nav-toggle" class="order-2 flex cursor-pointer items-center text-black md:order-1 md:hidden"> <svg class="h-6 fill-current" viewBox="0 0 20 20"> <title>Menu Open</title> <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path> </svg> </label> <label id="hide-button" for="nav-toggle" class="order-2 hidden cursor-pointer items-center text-black md:order-1"> <svg class="h-6 fill-current" viewBox="0 0 20 20"> <title>Menu Close</title> <polygon points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2" transform="rotate(45 10 10)"></polygon> </svg> </label> <!-- /navbar toggler --> <ul id="nav-menu" class="navbar-nav order-3 hidden w-full md:order-1 md:flex md:w-auto"> <li class="nav-item"> <a href="/" class="nav-link block"> Home </a> </li><li class="nav-item"> <a href="/blog" class="nav-link block"> Blog </a> </li><li class="nav-item"> <a href="/archive" class="nav-link block"> Archive </a> </li><li class="nav-item"> <a href="/about" class="nav-link block"> About </a> </li><li class="nav-item"> <a href="/resume" class="nav-link block"> Resume </a> </li> </ul> <div class="order-1 ml-auto flex md:order-2 md:ml-0"> <a class="mr-4 inline-block cursor-pointer p-2 text-xl text-dark transition hover:text-primary md:mr-0" href="/search" title="seach" aria-label="seach"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M456.69 421.39 362.6 327.3a173.81 173.81 0 0 0 34.84-104.58C397.44 126.38 319.06 48 222.72 48S48 126.38 48 222.72s78.38 174.72 174.72 174.72A173.81 173.81 0 0 0 327.3 362.6l94.09 94.09a25 25 0 0 0 35.3-35.3zM97.92 222.72a124.8 124.8 0 1 1 124.8 124.8 124.95 124.95 0 0 1-124.8-124.8z"></path></svg> </a> </div> </nav> </header> <main id="main-content" class="min-h-[60vh]">  <section class="section"> <div class="container"> <article class="row justify-center"> <div class="md:col-10 text-center"> <h1 class="h2">DIY Raspberry Pi router tutorial (MT7925)</h1> <ul class="mt-4 flex flex-wrap items-center justify-center text-text"> <li class="mx-3"> <a href="/authors/zihao-fu" class="flex items-center hover:text-primary font-medium"> <img src="/assets/images/profile.jpg" alt="Zihao Fu" loading="lazy" decoding="async" width="50" height="50" class="mr-2 h-6 w-6 rounded-full"> <span>Zihao Fu</span> </a> </li> <li class="mx-3 flex items-center flex-wrap font-medium"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="mr-1 h-5 w-5 text-gray-600" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M19 4h-3V2h-2v2h-4V2H8v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zM5 20V7h14V6l.002 14H5z"></path><path d="m15.628 12.183-1.8-1.799 1.37-1.371 1.8 1.799zm-7.623 4.018V18h1.799l4.976-4.97-1.799-1.799z"></path></svg> 05 Mar, 2026 </li> <li class="mx-3 flex items-center flex-wrap"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="mr-1 h-[18px] w-[18px] text-gray-600" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM9 9H5V5h4v4zm11 4h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1zm-1 6h-4v-4h4v4zM17 3c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2zM7 13c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z"></path></svg> <ul> <li class="inline-block"> <a href="/categories/tech" class="mr-2 hover:text-primary font-medium"> Tech  </a> </li> </ul> </li> </ul> </div> <div class="col-12 mt-8 mb-2"> <img src="/assets/2026-03-05-resources/5.jpeg" alt="DIY Raspberry Pi router tutorial (MT7925)" loading="lazy" decoding="async" width="1000" height="500" class="rounded-lg"> </div> <div class="md:col-10"> <div class="content mb-16 text-left"> <blockquote>
+<p>I built a Raspberry Pi router with a Raspberry Pi 5 and a Wi-Fi card.</p>
+</blockquote>
+<p>I achieved <strong>Wi-Fi 6</strong> and <strong>UPnP</strong>, boosting throughput close to the Ethernet bandwidth limit.</p>
+<p>What is more? Symmetric NAT (eduroam) => port-restricted NAT with UPnP.</p>
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD051 -->
+<!-- markdownlint-disable MD026 -->
+<figure style="text-align:center;">
+  <img src="/assets/2026-03-05-resources/6.jpeg" alt="Pi router" style="width:50%;max-width:440px;display:block;margin:0 auto;">
+</figure>
+<div style="text-align:center; font-size:0.85rem;color:#64748b;margin-top:.4rem;">My setup</div>
+<h2 id="how-to-make-a-router-with-raspberry-pi">How to make a router with Raspberry Pi</h2>
+<h3 id="introduction">Introduction</h3>
+<h4 id="software-used">Software used:</h4>
+<ol>
+<li><strong>hostapd</strong>: Controls Wi-Fi interfaces, handles SSID broadcasting, and WPA authentication.</li>
+<li><strong>dnsmasq / Pi-hole</strong>: Both dnsmasq and Pi-hole can be used as a DHCP server (assign IPs) and DNS server.
+I use Pi-hole for DNS only (port 53) and dnsmasq for DHCP (port 67).</li>
+<li><strong>miniupnpd</strong>: Provides UPnP capability for P2P connections.</li>
+<li><strong>nftables</strong>: Linux firewall. <code>iptables</code> is more complex to manage, and <code>ufw</code> lacks thorough control.
+miniupnpd works well with nftables.</li>
+</ol>
+<h4 id="steps--sections">Steps / sections:</h4>
+<ol>
+<li><a href="#Driver">Driver handling</a></li>
+<li><a href="#Hostapd">hostapd installation</a></li>
+<li><a href="#DHCP">Configure Pi-hole and dnsmasq</a></li>
+<li><a href="#UPnP">UPnP setup</a></li>
+<li><a href="#Benchmark">Benchmarking</a></li>
+<li><a href="#Hardware">Hardware selection</a></li>
+</ol>
+<h3 id="hardware-list">Hardware list</h3>
+<ul>
+<li>Raspberry Pi 5 (8 GB)</li>
+<li>MediaTek MT7925 Wi-Fi card (or any Wi-Fi card you already have)</li>
+<li>Raspberry Pi HAT: PCIe to M.2 Key E</li>
+<li>2 antennas</li>
+</ul>
+<p>Assemble the hardware before you continue.</p>
+<h2 id="Driver">1. Check Wi-Fi card compatibility</h2>
+<blockquote class="callout callout-important" data-callout="important">
+<p class="callout-title">IMPORTANT</p>
+<p>Latest Raspberry Pi 5 kernel fully supports <code>mt7925</code>, so you no longer need to compile the kernel yourself.</p>
+</blockquote>
+<p>My Wi-Fi card (MT7925) is not fully supported on Raspberry Pi OS with kernel <code>6.12.y</code>.
+After I plugged it in, the Wi-Fi interface did not appear. If you are on newer kernels,
+it might work out of the box. I had to rebuild the kernel myself. Below is how to do it.</p>
+<blockquote class="callout callout-note" data-callout="note">
+<p class="callout-title">NOTE</p>
+<p>If your Wi-Fi card driver already works and you can see it in <code>ip addr</code>, skip this step.</p>
+</blockquote>
+<p>If you are using Intel cards, like BE200 or AX210, they are likely supported. You should
+find an interface (usually <code>wlan1</code>) in <code>ip a</code>. However, Intel cards are generally better
+for client mode; AP mode has been better for me on MediaTek.</p>
+<blockquote>
+<p><a href="https://github.com/raspberrypi/linux/issues/7046#issuecomment-3794631559">Mediatek MT7925e fails to probe/bind on Raspberry Pi 5 PCIe bus with error -12</a></p>
+<p>By March 6, 2026, mainline support in Raspberry Pi OS kernels for MT7925 on this setup is still incomplete.</p>
+</blockquote>
+<blockquote>
+<p><a href="https://www.raspberrypi.com/documentation/computers/linux_kernel.html#building">Raspberry Pi official documentation: build custom kernel</a></p>
+</blockquote>
+<h3 id="check-pcie">Check PCIe</h3>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">zihao@hkg:~</span><span style="color:#ABB2BF"> $ </span><span style="color:#98C379">lspci</span></span>
+<span class="line"><span style="color:#61AFEF">0001:00:00.0</span><span style="color:#98C379"> PCI</span><span style="color:#98C379"> bridge:</span><span style="color:#98C379"> Broadcom</span><span style="color:#98C379"> Inc.</span><span style="color:#98C379"> and</span><span style="color:#98C379"> subsidiaries</span><span style="color:#98C379"> BCM2712</span><span style="color:#98C379"> PCIe</span><span style="color:#98C379"> Bridge</span><span style="color:#ABB2BF"> (rev </span><span style="color:#D19A66">30</span><span style="color:#ABB2BF">)</span></span>
+<span class="line"><span style="color:#61AFEF">0001:01:00.0</span><span style="color:#98C379"> Network</span><span style="color:#98C379"> controller:</span><span style="color:#98C379"> MEDIATEK</span><span style="color:#98C379"> Corp.</span><span style="color:#98C379"> MT7925</span><span style="color:#ABB2BF"> (RZ717) Wi-Fi 7 160MHz</span></span>
+<span class="line"><span style="color:#61AFEF">0002:00:00.0</span><span style="color:#98C379"> PCI</span><span style="color:#98C379"> bridge:</span><span style="color:#98C379"> Broadcom</span><span style="color:#98C379"> Inc.</span><span style="color:#98C379"> and</span><span style="color:#98C379"> subsidiaries</span><span style="color:#98C379"> BCM2712</span><span style="color:#98C379"> PCIe</span><span style="color:#98C379"> Bridge</span><span style="color:#ABB2BF"> (rev </span><span style="color:#D19A66">30</span><span style="color:#ABB2BF">)</span></span>
+<span class="line"><span style="color:#61AFEF">0002:01:00.0</span><span style="color:#98C379"> Ethernet</span><span style="color:#98C379"> controller:</span><span style="color:#98C379"> Raspberry</span><span style="color:#98C379"> Pi</span><span style="color:#98C379"> Ltd</span><span style="color:#98C379"> RP1</span><span style="color:#98C379"> PCIe</span><span style="color:#D19A66"> 2.0</span><span style="color:#98C379"> South</span><span style="color:#98C379"> Bridge</span></span></code></pre>
+<p>You need <code>MEDIATEK Corp. MT7925</code> to appear here.</p>
+<h3 id="fetch-kernel-source-prepare">Fetch kernel source, prepare</h3>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> apt</span><span style="color:#98C379"> update</span></span>
+<span class="line"><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> apt</span><span style="color:#98C379"> install</span><span style="color:#D19A66"> -y</span><span style="color:#98C379"> git</span><span style="color:#98C379"> bc</span><span style="color:#98C379"> bison</span><span style="color:#98C379"> flex</span><span style="color:#98C379"> libssl-dev</span><span style="color:#98C379"> ccache</span><span style="color:#98C379"> make</span><span style="color:#56B6C2"> \</span></span>
+<span class="line"><span style="color:#98C379">  libncurses-dev</span><span style="color:#98C379"> dwarves</span><span style="color:#98C379"> rsync</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#61AFEF">git</span><span style="color:#98C379"> clone</span><span style="color:#D19A66"> --depth</span><span style="color:#D19A66"> 1</span><span style="color:#98C379"> https://github.com/raspberrypi/linux.git</span></span>
+<span class="line"><span style="color:#56B6C2">cd</span><span style="color:#98C379"> linux</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#61AFEF">make</span><span style="color:#98C379"> bcm2712_defconfig</span></span>
+<span class="line"><span style="color:#61AFEF">make</span><span style="color:#98C379"> olddefconfig</span></span>
+<span class="line"><span style="color:#61AFEF">make</span><span style="color:#98C379"> menuconfig</span></span></code></pre>
+<p>In <code>make menuconfig</code>: <code>Device Drivers -> Network device support -> Wireless LAN -> MediaTek mt7925 support</code>.
+Mark them as <code>M</code> (kernel loadable modules).</p>
+<p>Run <code>grep MT7925 .config</code> to make sure these options are enabled.</p>
+<h3 id="compile">Compile</h3>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">make</span><span style="color:#D19A66"> -j</span><span style="color:#98C379">"$(</span><span style="color:#61AFEF">nproc</span><span style="color:#98C379">)"</span><span style="color:#98C379"> Image</span><span style="color:#98C379"> modules</span><span style="color:#98C379"> dtbs</span></span></code></pre>
+<p>Wait for it to finish.</p>
+<h3 id="install">Install</h3>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> cp</span><span style="color:#98C379"> /boot/firmware/kernel_2712.img</span><span style="color:#98C379"> /boot/firmware/kernel_2712.img.bak.</span><span style="color:#ABB2BF">$(</span><span style="color:#61AFEF">date</span><span style="color:#98C379"> +%F-%H%M</span><span style="color:#ABB2BF">)</span></span>
+<span class="line"><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> cp</span><span style="color:#98C379"> arch/arm64/boot/Image</span><span style="color:#98C379"> /boot/firmware/kernel_2712.img</span></span>
+<span class="line"><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> make</span><span style="color:#98C379"> modules_install</span></span>
+<span class="line"><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> make</span><span style="color:#98C379"> dtbs_install</span></span>
+<span class="line"><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> depmod</span><span style="color:#D19A66"> -a</span></span></code></pre>
+<p>You also need to add <code>dtoverlay=pcie-32bit-dma-pi5</code> in the <code>[all]</code> section of <code>/boot/firmware/config.txt</code>.
+After that, run <code>sudo reboot</code>.</p>
+<h3 id="verify">Verify</h3>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">zihao@hkg:~</span><span style="color:#ABB2BF"> $ </span><span style="color:#98C379">ip</span><span style="color:#98C379"> a</span><span style="color:#98C379"> show</span><span style="color:#98C379"> wlan1</span></span>
+<span class="line"><span style="color:#61AFEF">4:</span><span style="color:#98C379"> wlan1:</span><span style="color:#ABB2BF"> &#x3C;</span><span style="color:#98C379">BROADCAST,MULTICAST,UP,LOWER_U</span><span style="color:#ABB2BF">P> </span><span style="color:#98C379">mtu</span><span style="color:#D19A66"> 1500</span><span style="color:#98C379"> qdisc</span><span style="color:#98C379"> noqueue</span><span style="color:#98C379"> state</span><span style="color:#98C379"> UP</span><span style="color:#98C379"> group</span><span style="color:#98C379"> default</span><span style="color:#98C379"> qlen</span><span style="color:#D19A66"> 1000</span></span>
+<span class="line"><span style="color:#61AFEF">    link/ether</span><span style="color:#98C379"> 84:9e:56:9c:71:a5</span><span style="color:#98C379"> brd</span><span style="color:#98C379"> ff:ff:ff:ff:ff:ff</span></span>
+<span class="line"><span style="color:#61AFEF">    inet</span><span style="color:#98C379"> 192.168.50.1/24</span><span style="color:#98C379"> scope</span><span style="color:#98C379"> global</span><span style="color:#98C379"> wlan1</span></span>
+<span class="line"><span style="color:#61AFEF">       valid_lft</span><span style="color:#98C379"> forever</span><span style="color:#98C379"> preferred_lft</span><span style="color:#98C379"> forever</span></span>
+<span class="line"><span style="color:#61AFEF">    inet6</span><span style="color:#98C379"> fe80::869e:56ff:fe9c:71a5/64</span><span style="color:#98C379"> scope</span><span style="color:#98C379"> link</span><span style="color:#98C379"> proto</span><span style="color:#98C379"> kernel_ll</span></span>
+<span class="line"><span style="color:#61AFEF">       valid_lft</span><span style="color:#98C379"> forever</span><span style="color:#98C379"> preferred_lft</span><span style="color:#98C379"> forever</span></span></code></pre>
+<p>If you see the interface appear, the issue is solved. On Raspberry Pi OS, <code>nmcli</code> may automatically
+manage this interface in client mode. The output above is already configured for AP mode.</p>
+<h2 id="Hostapd">2. Set AP mode</h2>
+<h3 id="unmanage-from-networkmanager">Unmanage from NetworkManager</h3>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">zihao@hkg:~</span><span style="color:#ABB2BF"> $ </span><span style="color:#98C379">cd</span><span style="color:#98C379"> /etc/NetworkManager/conf.d</span></span>
+<span class="line"><span style="color:#61AFEF">zihao@hkg:/etc/NetworkManager/conf.d</span><span style="color:#ABB2BF"> $ </span><span style="color:#98C379">ls</span></span>
+<span class="line"><span style="color:#61AFEF">10-unmanage-wlan1.conf</span></span>
+<span class="line"><span style="color:#61AFEF">zihao@hkg:/etc/NetworkManager/conf.d</span><span style="color:#ABB2BF"> $ </span><span style="color:#98C379">cat</span><span style="color:#98C379"> 10-unmanage-wlan1.conf</span></span>
+<span class="line"><span style="color:#ABB2BF">[keyfile]</span></span>
+<span class="line"><span style="color:#E06C75">unmanaged-devices</span><span style="color:#56B6C2">=</span><span style="color:#98C379">interface-name:wlan1</span></span></code></pre>
+<h3 id="install-hostapd">Install hostapd</h3>
+<ol>
+<li>Through apt:</li>
+</ol>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> apt</span><span style="color:#98C379"> install</span><span style="color:#98C379"> hostapd</span></span></code></pre>
+<ol start="2">
+<li>Build from source if you need newer features:</li>
+</ol>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> apt</span><span style="color:#98C379"> update</span></span>
+<span class="line"><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> apt</span><span style="color:#98C379"> install</span><span style="color:#D19A66"> -y</span><span style="color:#56B6C2"> \</span></span>
+<span class="line"><span style="color:#98C379">  build-essential</span><span style="color:#98C379"> pkg-config</span><span style="color:#98C379"> git</span><span style="color:#56B6C2"> \</span></span>
+<span class="line"><span style="color:#98C379">  libnl-3-dev</span><span style="color:#98C379"> libnl-genl-3-dev</span><span style="color:#56B6C2"> \</span></span>
+<span class="line"><span style="color:#98C379">  libssl-dev</span><span style="color:#98C379"> libsqlite3-dev</span></span>
+<span class="line"><span style="color:#61AFEF">git</span><span style="color:#98C379"> clone</span><span style="color:#98C379"> https://w1.fi/hostap.git</span></span>
+<span class="line"><span style="color:#56B6C2">cd</span><span style="color:#98C379"> hostap/hostapd</span></span>
+<span class="line"><span style="color:#61AFEF">cp</span><span style="color:#98C379"> defconfig</span><span style="color:#98C379"> .config</span></span>
+<span class="line"><span style="color:#61AFEF">nano</span><span style="color:#98C379"> .config</span></span></code></pre>
+<p>Set your required features in <code>.config</code>, for example, <code>CONFIG_SAE=y</code>.
+The default config is generally complete. For Wi-Fi 7, <code>IEEE 802.11be</code> is usually enabled by default.</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">make</span><span style="color:#D19A66"> -j</span><span style="color:#98C379">"$(</span><span style="color:#61AFEF">nproc</span><span style="color:#98C379">)"</span></span></code></pre>
+<p>Place the built <code>hostapd</code> binary in a location like <code>/usr/local/bin</code>,
+then add a systemd unit file.</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">zihao@hkg:~</span><span style="color:#ABB2BF"> $ </span><span style="color:#98C379">sudo</span><span style="color:#98C379"> systemctl</span><span style="color:#98C379"> cat</span><span style="color:#98C379"> hostapd</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># /etc/systemd/system/hostapd.service</span></span>
+<span class="line"><span style="color:#ABB2BF">[Unit]</span></span>
+<span class="line"><span style="color:#E06C75">Description</span><span style="color:#56B6C2">=</span><span style="color:#98C379">hostapd</span><span style="color:#61AFEF"> IEEE</span><span style="color:#D19A66"> 802.11</span><span style="color:#98C379"> AP</span><span style="color:#98C379"> and</span><span style="color:#98C379"> authentication</span><span style="color:#98C379"> server</span></span>
+<span class="line"><span style="color:#E06C75">Wants</span><span style="color:#56B6C2">=</span><span style="color:#98C379">network-online.target</span></span>
+<span class="line"><span style="color:#E06C75">After</span><span style="color:#56B6C2">=</span><span style="color:#98C379">network-online.target</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#ABB2BF">[Service]</span></span>
+<span class="line"><span style="color:#E06C75">Type</span><span style="color:#56B6C2">=</span><span style="color:#98C379">forking</span></span>
+<span class="line"><span style="color:#E06C75">User</span><span style="color:#56B6C2">=</span><span style="color:#98C379">root</span></span>
+<span class="line"><span style="color:#E06C75">Group</span><span style="color:#56B6C2">=</span><span style="color:#98C379">root</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E06C75">ExecStart</span><span style="color:#56B6C2">=</span><span style="color:#98C379">/usr/local/bin/hostapd</span><span style="color:#61AFEF"> -B</span><span style="color:#D19A66"> -P</span><span style="color:#98C379"> /run/hostapd.pid</span><span style="color:#98C379"> /etc/hostapd/hostapd.conf</span></span>
+<span class="line"><span style="color:#E06C75">ExecReload</span><span style="color:#56B6C2">=</span><span style="color:#98C379">/bin/kill</span><span style="color:#61AFEF"> -HUP</span><span style="color:#E06C75"> $MAINPID</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E06C75">PIDFile</span><span style="color:#56B6C2">=</span><span style="color:#98C379">/run/hostapd.pid</span></span>
+<span class="line"><span style="color:#E06C75">Restart</span><span style="color:#56B6C2">=</span><span style="color:#98C379">on-failure</span></span>
+<span class="line"><span style="color:#E06C75">RestartSec</span><span style="color:#56B6C2">=</span><span style="color:#98C379">2</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#ABB2BF">[Install]</span></span>
+<span class="line"><span style="color:#E06C75">WantedBy</span><span style="color:#56B6C2">=</span><span style="color:#98C379">multi-user.target</span></span></code></pre>
+<p>Create <code>/etc/hostapd/hostapd.conf</code>:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>interface=wlan1</span></span>
+<span class="line"><span>driver=nl80211</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>ssid=WIFI_NAME</span></span>
+<span class="line"><span>country_code=ES</span></span>
+<span class="line"><span>ieee80211d=1</span></span>
+<span class="line"><span>ieee80211h=1</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>hw_mode=a</span></span>
+<span class="line"><span>channel=36</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>wmm_enabled=1</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>ieee80211n=1</span></span>
+<span class="line"><span>ieee80211ac=1</span></span>
+<span class="line"><span>ieee80211ax=1</span></span>
+<span class="line"><span># ieee80211be=1 # Kernel 6.12 still lacks full support for this setup.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>ht_capab=[HT40+][SHORT-GI-20][SHORT-GI-40]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>vht_oper_chwidth=1</span></span>
+<span class="line"><span>vht_oper_centr_freq_seg0_idx=42</span></span>
+<span class="line"><span>vht_capab=[SHORT-GI-80][RXLDPC][TX-STBC-2BY1][SU-BEAMFORMEE][MU-BEAMFORMEE]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>he_oper_chwidth=1</span></span>
+<span class="line"><span>he_oper_centr_freq_seg0_idx=42</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># ===== Security: WPA3-SAE only =====</span></span>
+<span class="line"><span>auth_algs=1</span></span>
+<span class="line"><span>wpa=2</span></span>
+<span class="line"><span>wpa_key_mgmt=SAE</span></span>
+<span class="line"><span>rsn_pairwise=CCMP</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># PMF required for WPA3</span></span>
+<span class="line"><span>ieee80211w=2</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># SAE H2E (recommended). If some clients fail, try sae_pwe=0</span></span>
+<span class="line"><span>sae_pwe=1</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>wpa_passphrase=YOUR_PASSWORD</span></span></code></pre>
+<h3 id="start-hostapd">Start hostapd</h3>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> systemctl</span><span style="color:#98C379"> enable</span><span style="color:#D19A66"> --now</span><span style="color:#98C379"> hostapd</span></span>
+<span class="line"><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> systemctl</span><span style="color:#98C379"> status</span><span style="color:#98C379"> hostapd</span></span></code></pre>
+<p>Expected output is similar to:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">zihao@hkg:~</span><span style="color:#ABB2BF"> $ </span><span style="color:#98C379">sudo</span><span style="color:#98C379"> systemctl</span><span style="color:#98C379"> status</span><span style="color:#98C379"> hostapd</span></span>
+<span class="line"><span style="color:#61AFEF">●</span><span style="color:#98C379"> hostapd.service</span><span style="color:#98C379"> -</span><span style="color:#98C379"> hostapd</span><span style="color:#98C379"> IEEE</span><span style="color:#D19A66"> 802.11</span><span style="color:#98C379"> AP</span><span style="color:#98C379"> and</span><span style="color:#98C379"> authentication</span><span style="color:#98C379"> server</span></span>
+<span class="line"><span style="color:#61AFEF">     Loaded:</span><span style="color:#98C379"> loaded</span><span style="color:#ABB2BF"> (/etc/systemd/system/hostapd.service; </span><span style="color:#61AFEF">enabled</span><span style="color:#ABB2BF">; </span><span style="color:#61AFEF">preset:</span><span style="color:#98C379"> enabled</span><span style="color:#ABB2BF">)</span></span>
+<span class="line"><span style="color:#61AFEF">     Active:</span><span style="color:#98C379"> active</span><span style="color:#ABB2BF"> (running) since Tue 2026-03-03 20:17:58 HKT; </span><span style="color:#61AFEF">2</span><span style="color:#98C379"> days</span><span style="color:#98C379"> ago</span></span>
+<span class="line"><span style="color:#61AFEF"> Invocation:</span><span style="color:#98C379"> 827f7ab3d457451c857c0bf0c4bf72d1</span></span>
+<span class="line"><span style="color:#61AFEF">   Main</span><span style="color:#98C379"> PID:</span><span style="color:#D19A66"> 22706</span><span style="color:#ABB2BF"> (hostapd)</span></span>
+<span class="line"><span style="color:#61AFEF">      Tasks:</span><span style="color:#D19A66"> 1</span><span style="color:#ABB2BF"> (limit: </span><span style="color:#D19A66">9583</span><span style="color:#ABB2BF">)</span></span>
+<span class="line"><span style="color:#61AFEF">        CPU:</span><span style="color:#98C379"> 951ms</span></span>
+<span class="line"><span style="color:#61AFEF">     CGroup:</span><span style="color:#98C379"> /system.slice/hostapd.service</span></span>
+<span class="line"><span style="color:#61AFEF">             └─22706</span><span style="color:#98C379"> /usr/local/sbin/hostapd</span><span style="color:#D19A66"> -B</span><span style="color:#D19A66"> -P</span><span style="color:#98C379"> /run/hostapd.pid</span><span style="color:#98C379"> /etc/hostapd/hostapd.conf</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#61AFEF">Mar</span><span style="color:#D19A66"> 06</span><span style="color:#98C379"> 01:13:07</span><span style="color:#98C379"> hkg</span><span style="color:#98C379"> hostapd[22706]:</span><span style="color:#98C379"> wlan1:</span><span style="color:#98C379"> STA</span><span style="color:#98C379"> 56:44:77:0d:1d:39</span><span style="color:#98C379"> IEEE</span><span style="color:#98C379"> 802.11:</span><span style="color:#98C379"> disassociated</span><span style="color:#98C379"> due</span><span style="color:#98C379"> to</span><span style="color:#98C379"> i</span><span style="color:#ABB2BF">n></span></span>
+<span class="line"><span style="color:#61AFEF">Mar</span><span style="color:#D19A66"> 06</span><span style="color:#98C379"> 01:13:08</span><span style="color:#98C379"> hkg</span><span style="color:#98C379"> hostapd[22706]:</span><span style="color:#98C379"> wlan1:</span><span style="color:#98C379"> STA</span><span style="color:#98C379"> 56:44:77:0d:1d:39</span><span style="color:#98C379"> IEEE</span><span style="color:#98C379"> 802.11:</span><span style="color:#98C379"> deauthenticated</span><span style="color:#98C379"> due</span><span style="color:#98C379"> to</span><span style="color:#ABB2BF"> ></span></span>
+<span class="line"><span style="color:#61AFEF">Mar</span><span style="color:#D19A66"> 06</span><span style="color:#98C379"> 05:01:18</span><span style="color:#98C379"> hkg</span><span style="color:#98C379"> hostapd[22706]:</span><span style="color:#98C379"> wlan1:</span><span style="color:#98C379"> STA</span><span style="color:#98C379"> 56:44:77:0d:1d:39</span><span style="color:#98C379"> IEEE</span><span style="color:#98C379"> 802.11:</span><span style="color:#98C379"> deauthenticated</span><span style="color:#98C379"> due</span><span style="color:#98C379"> to</span><span style="color:#ABB2BF"> ></span></span>
+<span class="line"><span style="color:#61AFEF">Mar</span><span style="color:#D19A66"> 06</span><span style="color:#98C379"> 09:44:03</span><span style="color:#98C379"> hkg</span><span style="color:#98C379"> hostapd[22706]:</span><span style="color:#98C379"> wlan1:</span><span style="color:#98C379"> STA</span><span style="color:#98C379"> 56:44:77:0d:1d:39</span><span style="color:#98C379"> IEEE</span><span style="color:#98C379"> 802.11:</span><span style="color:#98C379"> associated</span><span style="color:#ABB2BF"> (aid </span><span style="color:#D19A66">4</span><span style="color:#ABB2BF">)</span></span>
+<span class="line"><span style="color:#61AFEF">Mar</span><span style="color:#D19A66"> 06</span><span style="color:#98C379"> 09:44:03</span><span style="color:#98C379"> hkg</span><span style="color:#98C379"> hostapd[22706]:</span><span style="color:#98C379"> wlan1:</span><span style="color:#98C379"> STA</span><span style="color:#98C379"> 56:44:77:0d:1d:39</span><span style="color:#98C379"> RADIUS:</span><span style="color:#98C379"> starting</span><span style="color:#98C379"> accounting</span><span style="color:#98C379"> session</span><span style="color:#ABB2BF"> ></span></span>
+<span class="line"><span style="color:#61AFEF">Mar</span><span style="color:#D19A66"> 06</span><span style="color:#98C379"> 09:44:03</span><span style="color:#98C379"> hkg</span><span style="color:#98C379"> hostapd[22706]:</span><span style="color:#98C379"> wlan1:</span><span style="color:#98C379"> STA</span><span style="color:#98C379"> 56:44:77:0d:1d:39</span><span style="color:#98C379"> WPA:</span><span style="color:#98C379"> pairwise</span><span style="color:#98C379"> key</span><span style="color:#98C379"> handshake</span><span style="color:#98C379"> complet</span><span style="color:#ABB2BF">e></span></span>
+<span class="line"><span style="color:#61AFEF">Mar</span><span style="color:#D19A66"> 06</span><span style="color:#98C379"> 09:50:23</span><span style="color:#98C379"> hkg</span><span style="color:#98C379"> hostapd[22706]:</span><span style="color:#98C379"> wlan1:</span><span style="color:#98C379"> STA</span><span style="color:#98C379"> 56:44:77:0d:1d:39</span><span style="color:#98C379"> IEEE</span><span style="color:#98C379"> 802.11:</span><span style="color:#98C379"> disassociated</span></span></code></pre>
+<p>Now hostapd is set up. Your Wi-Fi can be discovered, but without DHCP, clients cannot use it yet.</p>
+<h2 id="DHCP">3. dnsmasq and Pi-hole</h2>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> apt</span><span style="color:#98C379"> install</span><span style="color:#98C379"> dnsmasq</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#61AFEF">curl</span><span style="color:#D19A66"> -sSL</span><span style="color:#98C379"> https://install.pi-hole.net</span><span style="color:#ABB2BF"> | </span><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> bash</span></span></code></pre>
+<p>This installs dnsmasq and Pi-hole.</p>
+<p>Create <code>/etc/dnsmasq.d/dhcp.conf</code>.</p>
+<p>Example config:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span># DHCP only for AP</span></span>
+<span class="line"><span>interface=wlan1</span></span>
+<span class="line"><span>bind-interfaces</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># DO NOT provide DNS service (Pi-hole owns :53)</span></span>
+<span class="line"><span>port=0</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>dhcp-range=192.168.50.50,192.168.50.200,255.255.255.0,12h</span></span>
+<span class="line"><span>dhcp-option=option:router,192.168.50.1      # You are free to choose private IP ranges</span></span>
+<span class="line"><span>dhcp-option=option:dns-server,192.168.50.1</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>log-dhcp</span></span></code></pre>
+<p>Now the interface does not have a ip, <code>hostapd</code> does not allocate a ip to the interface. So
+before starting dnsmasq, we need to add a ip to <code>wlan1</code>.</p>
+<p>One time method:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> ip</span><span style="color:#98C379"> addr</span><span style="color:#98C379"> replace</span><span style="color:#98C379"> 192.168.50.1/24</span><span style="color:#98C379"> dev</span><span style="color:#98C379"> wlan1</span></span></code></pre>
+<p>To make it presistant after reboot, prevent dnsmasq and miniupnpd failing, you would need a systmed unit runs before dnsmasq and miniupnpd.</p>
+<p>Create <code>/etc/systemd/system/wlan1-lan.service</code></p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#ABB2BF">[Unit]</span></span>
+<span class="line"><span style="color:#E06C75">Description</span><span style="color:#56B6C2">=</span><span style="color:#98C379">Configure</span><span style="color:#61AFEF"> LAN</span><span style="color:#98C379"> IPv4</span><span style="color:#98C379"> on</span><span style="color:#98C379"> wlan1</span></span>
+<span class="line"><span style="color:#E06C75">After</span><span style="color:#56B6C2">=</span><span style="color:#98C379">sys-subsystem-net-devices-wlan1.device</span></span>
+<span class="line"><span style="color:#E06C75">BindsTo</span><span style="color:#56B6C2">=</span><span style="color:#98C379">sys-subsystem-net-devices-wlan1.device</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#ABB2BF">[Service]</span></span>
+<span class="line"><span style="color:#E06C75">Type</span><span style="color:#56B6C2">=</span><span style="color:#98C379">oneshot</span></span>
+<span class="line"><span style="color:#E06C75">RemainAfterExit</span><span style="color:#56B6C2">=</span><span style="color:#98C379">yes</span></span>
+<span class="line"><span style="color:#E06C75">ExecStart</span><span style="color:#56B6C2">=</span><span style="color:#98C379">/usr/sbin/ip</span><span style="color:#61AFEF"> link</span><span style="color:#98C379"> set</span><span style="color:#98C379"> wlan1</span><span style="color:#98C379"> up</span></span>
+<span class="line"><span style="color:#E06C75">ExecStart</span><span style="color:#56B6C2">=</span><span style="color:#98C379">/usr/sbin/ip</span><span style="color:#61AFEF"> addr</span><span style="color:#98C379"> replace</span><span style="color:#98C379"> 192.168.50.1/24</span><span style="color:#98C379"> dev</span><span style="color:#98C379"> wlan1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#ABB2BF">[Install]</span></span>
+<span class="line"><span style="color:#E06C75">WantedBy</span><span style="color:#56B6C2">=</span><span style="color:#98C379">multi-user.target</span></span></code></pre>
+<p>This systemd unit will allocate ip to wlan1 and make it presistant after reboot.
+Don’t forget to add the below snippet to <code>dnsmasq</code> and <code>miniupnpd</code> configuration file.
+If dnsmasq and miniupnpd does not wait for <code>wlan1-lan.service</code> they will fail.</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#E06C75">After</span><span style="color:#56B6C2">=</span><span style="color:#98C379">hostapd.service</span><span style="color:#61AFEF"> wlan1-lan.service</span></span>
+<span class="line"><span style="color:#E06C75">Requires</span><span style="color:#56B6C2">=</span><span style="color:#98C379">hostapd.service</span><span style="color:#61AFEF"> wlan1-lan.service</span></span></code></pre>
+<p>For Pi-hole, configuration is located at <code>/etc/pihole</code>; tune it as needed. Use <code>pihole status</code> to check it.</p>
+<p>Finally, start the service.</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> systemctl</span><span style="color:#98C379"> daemon-reload</span></span>
+<span class="line"><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> systemctl</span><span style="color:#98C379"> restart</span><span style="color:#98C379"> dnsmasq</span></span></code></pre>
+<p>From this point, your Wi-Fi Access Point, DHCP and DNS is done. Last puzzle is routing.</p>
+<blockquote class="callout callout-tip" data-callout="tip">
+<p class="callout-title">TIP</p>
+<p>Below you can consider it as a branch, if you don’t need UPnP, finish this section and your router is done.
+Otherwise, continue to next
+section. Remember routing requires sysctl and firewall confiuration, you can always come back and it may help.</p>
+</blockquote>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#56B6C2">echo</span><span style="color:#98C379"> "net.ipv4.ip_forward=1"</span><span style="color:#ABB2BF"> | </span><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> tee</span><span style="color:#D19A66"> -a</span><span style="color:#98C379"> /etc/sysctl.conf</span><span style="color:#7F848E;font-style:italic"> # This is enables IP packets forwarding</span></span></code></pre>
+<p>and allow forwarding on your firewall from wlan1 to your WAN, also open port 53 and 67.</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>table ip filter {</span></span>
+<span class="line"><span>    chain forward {</span></span>
+<span class="line"><span>        type filter hook forward priority 0; policy drop;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        # Stateful firewall</span></span>
+<span class="line"><span>        ct state established,related accept</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        # Allow forwarding from LAN to WAN</span></span>
+<span class="line"><span>        iifname "wlan1" oifname "eth0" accept</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span></code></pre>
+<h2 id="UPnP">4. miniupnpd</h2>
+<blockquote class="callout callout-warning" data-callout="warning">
+<p class="callout-title">WARNING</p>
+<p>UPnP: Universal Plug and Play. It can open firewall ports automatically.
+It works well for game consoles, BitTorrent, Tailscale, etc., offering direct-connection capabilities,
+but it requires proper security enforcement during setup.</p>
+</blockquote>
+<h3 id="installation">Installation</h3>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> apt</span><span style="color:#98C379"> install</span><span style="color:#98C379"> miniupnpd</span><span style="color:#98C379"> nftables</span></span>
+<span class="line"><span style="color:#61AFEF">sudo</span><span style="color:#98C379"> apt</span><span style="color:#98C379"> remove</span><span style="color:#98C379"> ufw</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># Do not let ufw modify the firewall from now on. Control nftables entirely.</span></span></code></pre>
+<h3 id="setup">Setup</h3>
+<p>Below is the Debian miniupnpd unit file:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">zihao@hkg:~</span><span style="color:#ABB2BF"> $ </span><span style="color:#98C379">sudo</span><span style="color:#98C379"> systemctl</span><span style="color:#98C379"> cat</span><span style="color:#98C379"> miniupnpd</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># /usr/lib/systemd/system/miniupnpd.service</span></span>
+<span class="line"><span style="color:#ABB2BF">[Unit]</span></span>
+<span class="line"><span style="color:#E06C75">Description</span><span style="color:#56B6C2">=</span><span style="color:#98C379">Lightweight</span><span style="color:#61AFEF"> UPnP</span><span style="color:#98C379"> IGD</span><span style="color:#ABB2BF"> &#x26; </span><span style="color:#61AFEF">PCP/NAT-PMP</span><span style="color:#98C379"> daemon</span></span>
+<span class="line"><span style="color:#E06C75">Documentation</span><span style="color:#56B6C2">=</span><span style="color:#98C379">man:miniupnpd</span><span style="color:#ABB2BF">(</span><span style="color:#61AFEF">8</span><span style="color:#ABB2BF">)</span></span>
+<span class="line"><span style="color:#E06C75">After</span><span style="color:#56B6C2">=</span><span style="color:#98C379">network-online.target</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#ABB2BF">[Service]</span></span>
+<span class="line"><span style="color:#E06C75">Type</span><span style="color:#56B6C2">=</span><span style="color:#98C379">forking</span></span>
+<span class="line"><span style="color:#E06C75">EnvironmentFile</span><span style="color:#56B6C2">=</span><span style="color:#98C379">-/etc/default/miniupnpd</span></span>
+<span class="line"><span style="color:#E06C75">ExecStartPre</span><span style="color:#56B6C2">=</span><span style="color:#98C379">/usr/libexec/miniupnpd-startstop-helper.sh</span><span style="color:#61AFEF"> start</span></span>
+<span class="line"><span style="color:#E06C75">ExecStart</span><span style="color:#56B6C2">=</span><span style="color:#98C379">/usr/sbin/miniupnpd</span><span style="color:#61AFEF"> -f</span><span style="color:#98C379"> /etc/miniupnpd/miniupnpd.conf</span><span style="color:#E06C75"> $MiniUPnPd_OTHER_OPTIONS</span></span>
+<span class="line"><span style="color:#E06C75">ExecStopPost</span><span style="color:#56B6C2">=</span><span style="color:#98C379">/usr/libexec/miniupnpd-startstop-helper.sh</span><span style="color:#61AFEF"> stop</span></span>
+<span class="line"><span style="color:#E06C75">PIDFile</span><span style="color:#56B6C2">=</span><span style="color:#98C379">/run/miniupnpd.pid</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># #1033012, do not make TasksMax too harsh</span></span>
+<span class="line"><span style="color:#E06C75">TasksMax</span><span style="color:#56B6C2">=</span><span style="color:#98C379">16</span></span>
+<span class="line"><span style="color:#E06C75">CapabilityBoundingSet</span><span style="color:#56B6C2">=</span><span style="color:#98C379">CAP_NET_ADMIN</span><span style="color:#61AFEF"> CAP_NET_BROADCAST</span><span style="color:#98C379"> CAP_NET_RAW</span><span style="color:#98C379"> CAP_SYSLOG</span></span>
+<span class="line"><span style="color:#E06C75">MountAPIVFS</span><span style="color:#56B6C2">=</span><span style="color:#98C379">yes</span></span>
+<span class="line"><span style="color:#E06C75">NoNewPrivileges</span><span style="color:#56B6C2">=</span><span style="color:#98C379">yes</span></span>
+<span class="line"><span style="color:#E06C75">PrivateMounts</span><span style="color:#56B6C2">=</span><span style="color:#98C379">yes</span></span>
+<span class="line"><span style="color:#E06C75">PrivateDevices</span><span style="color:#56B6C2">=</span><span style="color:#98C379">yes</span></span>
+<span class="line"><span style="color:#E06C75">PrivateTmp</span><span style="color:#56B6C2">=</span><span style="color:#98C379">yes</span></span>
+<span class="line"><span style="color:#E06C75">MemoryDenyWriteExecute</span><span style="color:#56B6C2">=</span><span style="color:#98C379">yes</span></span>
+<span class="line"><span style="color:#E06C75">ProtectSystem</span><span style="color:#56B6C2">=</span><span style="color:#98C379">full</span></span>
+<span class="line"><span style="color:#E06C75">ProtectHome</span><span style="color:#56B6C2">=</span><span style="color:#98C379">yes</span></span>
+<span class="line"><span style="color:#E06C75">ProtectHostname</span><span style="color:#56B6C2">=</span><span style="color:#98C379">yes</span></span>
+<span class="line"><span style="color:#E06C75">ProtectClock</span><span style="color:#56B6C2">=</span><span style="color:#98C379">yes</span></span>
+<span class="line"><span style="color:#E06C75">ProtectKernelTunables</span><span style="color:#56B6C2">=</span><span style="color:#98C379">yes</span></span>
+<span class="line"><span style="color:#E06C75">ProtectKernelModules</span><span style="color:#56B6C2">=</span><span style="color:#98C379">yes</span></span>
+<span class="line"><span style="color:#E06C75">ProtectKernelLogs</span><span style="color:#56B6C2">=</span><span style="color:#98C379">yes</span></span>
+<span class="line"><span style="color:#E06C75">ProtectControlGroups</span><span style="color:#56B6C2">=</span><span style="color:#98C379">yes</span></span>
+<span class="line"><span style="color:#E06C75">LockPersonality</span><span style="color:#56B6C2">=</span><span style="color:#98C379">yes</span></span>
+<span class="line"><span style="color:#E06C75">RestrictRealtime</span><span style="color:#56B6C2">=</span><span style="color:#98C379">yes</span></span>
+<span class="line"><span style="color:#E06C75">RestrictNamespaces</span><span style="color:#56B6C2">=</span><span style="color:#98C379">yes</span></span>
+<span class="line"><span style="color:#E06C75">RestrictSUIDSGID</span><span style="color:#56B6C2">=</span><span style="color:#98C379">yes</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#ABB2BF">[Install]</span></span>
+<span class="line"><span style="color:#E06C75">WantedBy</span><span style="color:#56B6C2">=</span><span style="color:#98C379">multi-user.target</span></span></code></pre>
+<p>Notice that <code>miniupnpd-startstop-helper.sh</code> runs during startup and stop.</p>
+<p>These helper scripts call additional scripts in <code>/etc/miniupnpd</code>:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">zihao@hkg:/etc/miniupnpd</span><span style="color:#ABB2BF"> $ </span><span style="color:#98C379">ls</span></span>
+<span class="line"><span style="color:#61AFEF">miniupnpd.conf</span><span style="color:#98C379">          nft_delete_chain.sh</span><span style="color:#98C379">  nft_init.sh</span></span>
+<span class="line"><span style="color:#61AFEF">miniupnpd_functions.sh</span><span style="color:#98C379">  nft_flush.sh</span><span style="color:#98C379">         nft_removeall.sh</span></span></code></pre>
+<p>The Debian-shipped miniupnpd helper scripts contain <strong>hard-coded values</strong>.
+Specifically, they can hard-code creation/use of an <code>inet</code> table named <code>filter</code>
+(priority 0). If you already use your own nftables design, this hard-coded <code>filter</code>
+table behavior can conflict with your rules and chain layout.</p>
+<p>For example, if you load your own custom table and then start miniupnpd,
+it may inject/manage its own <code>filter</code> table/chains unexpectedly. In that case,
+clients on this Wi-Fi may fail to forward traffic to <code>eth0</code> until you align names/rules.</p>
+<p>My suggestion: modify those helper scripts and remove the parts that create/delete
+tables you do not want managed automatically. Then, in <code>/etc/miniupnpd/miniupnpd.conf</code>,
+set <code>upnp_table_name</code> and <code>upnp_nat_table_name</code> to your intended table.</p>
+<p>Example:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span># Table names for netfilter nft. Default is "filter" for both.</span></span>
+<span class="line"><span>upnp_table_name=filter</span></span>
+<span class="line"><span>upnp_nat_table_name=filter</span></span>
+<span class="line"><span># Chain names for netfilter and netfilter nft</span></span>
+<span class="line"><span># netfilter: defaults are MINIUPNPD, MINIUPNPD, MINIUPNPD-POSTROUTING</span></span>
+<span class="line"><span># netfilter nft: defaults are miniupnpd, prerouting_miniupnpd, postrouting_miniupnpd</span></span>
+<span class="line"><span>upnp_forward_chain=forwardUPnP</span></span>
+<span class="line"><span>upnp_nat_chain=UPnP</span></span>
+<span class="line"><span>upnp_nat_postrouting_chain=UPnP_Postrouting</span></span>
+<span class="line"><span>upnp_nftables_family_split=no</span></span></code></pre>
+<p>Before you start, make sure nftables contains these fields.</p>
+<p>Example <code>/etc/nftables.conf</code>:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>#!/usr/sbin/nft -f</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>add table inet filter</span></span>
+<span class="line"><span>flush table inet filter</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>table inet filter {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    # ---------- FILTER ----------</span></span>
+<span class="line"><span>    chain input {</span></span>
+<span class="line"><span>        type filter hook input priority 0; policy drop;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        iif "lo" accept</span></span>
+<span class="line"><span>        ct state established,related accept # Stateful firewall</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        # WAN services go here</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        # LAN -> router services</span></span>
+<span class="line"><span>        # 67 DHCP; 53 DNS; 1900 and 5351 for UPnP</span></span>
+<span class="line"><span>        iif "wlan1" udp dport {67,53,1900,5351} accept</span></span>
+<span class="line"><span>        iif "wlan1" tcp dport 53 accept</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        ip protocol icmp accept</span></span>
+<span class="line"><span>        ip6 nexthdr ipv6-icmp accept</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    chain forward {</span></span>
+<span class="line"><span>        type filter hook forward priority 0; policy drop;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        ct state established,related accept</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        # Let miniupnpd-installed ACCEPT rules for forwarded mappings be evaluated</span></span>
+<span class="line"><span>        jump forwardUPnP</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        # Normal routing</span></span>
+<span class="line"><span>        iif "wlan1" oif "eth0" accept</span></span>
+<span class="line"><span>        iif "tailscale0" oif "wlan1" accept</span></span>
+<span class="line"><span>        iif "wlan1" oif "tailscale0" accept</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        # Allow DNATed flows (UPnP port-forwards) after prerouting</span></span>
+<span class="line"><span>        iif "eth0" oif "wlan1" ct status dnat accept</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        ip protocol icmp accept</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    chain output {</span></span>
+<span class="line"><span>        type filter hook output priority 0; policy accept;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    # miniupnpd will add/remove rules here:</span></span>
+<span class="line"><span>    chain forwardUPnP { }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    # ---------- NAT ----------</span></span>
+<span class="line"><span>    # miniupnpd will add DNAT rules in UPnP (jumped from prerouting)</span></span>
+<span class="line"><span>    chain prerouting {</span></span>
+<span class="line"><span>        type nat hook prerouting priority dstnat; policy accept;</span></span>
+<span class="line"><span>        jump UPnP</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    # miniupnpd will add SNAT helper rules here if needed</span></span>
+<span class="line"><span>    chain postrouting {</span></span>
+<span class="line"><span>        type nat hook postrouting priority srcnat; policy accept;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        # Allow miniupnpd to do its NAT postrouting work first</span></span>
+<span class="line"><span>        jump UPnP_Postrouting</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        # Your masquerade rules</span></span>
+<span class="line"><span>        oif "eth0" ip saddr 192.168.50.0/24 masquerade</span></span>
+<span class="line"><span>        oif "tailscale0" ip saddr 192.168.50.0/24 masquerade</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    # miniupnpd will add DNAT rules here:</span></span>
+<span class="line"><span>    chain UPnP { }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    # miniupnpd will add NAT postrouting rules here:</span></span>
+<span class="line"><span>    chain UPnP_Postrouting { }</span></span>
+<span class="line"><span>}</span></span></code></pre>
+<h3 id="security-tips">Security tips</h3>
+<p>In <code>/etc/miniupnpd/miniupnpd.conf</code>, check this part:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#7F848E;font-style:italic"># UPnP permission rules (also enforced for NAT-PMP and PCP) for IPv4</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># (allow|deny) (external port range) IP/mask (internal port range) (optional regex filter)</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># A port range is &#x3C;min port>-&#x3C;max port> or &#x3C;port> if there is only</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># one port in the range.</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># IP/mask format must be nnn.nnn.nnn.nnn/nn</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># Regex support must be enabled at build time : ./configure --regex</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># It is advised to only allow redirection of ports >= 1024</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># and end the rule set with "deny 0-65535 0.0.0.0/0 0-65535"</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># The following default ruleset allows specific LAN side IP addresses</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># to request only ephemeral ports. It is recommended that users</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># modify the IP ranges to match their own internal networks, and</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># also consider implementing network-specific restrictions</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># CAUTION: failure to enforce any rules may permit insecure requests to be made!</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">#allow 1024-65535 192.168.0.0/24 1024-65535</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># disallow requests whose description string matches the given regex</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># deny 1024-65535 192.168.1.0/24 1024-65535 "My evil app ver [[:digit:]]*"</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">#allow 1024-65535 192.168.1.0/24 1024-65535</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">#allow 1024-65535 192.168.0.0/23 22</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">#allow 12345 192.168.7.113/32 54321</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">#deny 0-65535 0.0.0.0/0 0-65535</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#61AFEF">allow</span><span style="color:#98C379"> 1024-65535</span><span style="color:#98C379"> 192.168.50.0/24</span><span style="color:#98C379"> 1024-65535</span></span>
+<span class="line"><span style="color:#61AFEF">deny</span><span style="color:#98C379"> 0-65535</span><span style="color:#98C379"> 0.0.0.0/0</span><span style="color:#98C379"> 0-65535</span></span></code></pre>
+<p>Ensure only your LAN clients are allowed to add UPnP rules.</p>
+<p>Run <code>sudo systemctl enable --now miniupnpd</code> to start.</p>
+<h3 id="final-check">Final check</h3>
+<p>Run <code>sudo nft list ruleset</code>. You should see a non-empty filter table with rules inside.</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>table inet filter {</span></span>
+<span class="line"><span>    chain input {</span></span>
+<span class="line"><span>      type filter hook input priority filter; policy drop;</span></span>
+<span class="line"><span>      iif "lo" accept</span></span>
+<span class="line"><span>      ct state established,related accept</span></span>
+<span class="line"><span>      iif "eth0" udp dport { 40000, 41641 } accept</span></span>
+<span class="line"><span>      iif "wlan1" udp dport { 53, 67, 1900, 5351 } accept</span></span>
+<span class="line"><span>      iif "wlan1" tcp dport 53 accept</span></span>
+<span class="line"><span>      iif "tailscale0" accept</span></span>
+<span class="line"><span>      ip protocol icmp accept</span></span>
+<span class="line"><span>      ip6 nexthdr ipv6-icmp accept</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    chain forward {</span></span>
+<span class="line"><span>      type filter hook forward priority filter; policy drop;</span></span>
+<span class="line"><span>      ct state established,related accept</span></span>
+<span class="line"><span>      jump forwardUPnP</span></span>
+<span class="line"><span>      iif "wlan1" oif "eth0" accept</span></span>
+<span class="line"><span>      iif "tailscale0" oif "wlan1" accept</span></span>
+<span class="line"><span>      iif "wlan1" oif "tailscale0" accept</span></span>
+<span class="line"><span>      iif "eth0" oif "wlan1" ct status dnat accept</span></span>
+<span class="line"><span>      ip protocol icmp accept</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    chain output {</span></span>
+<span class="line"><span>      type filter hook output priority filter; policy accept;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    chain forwardUPnP {</span></span>
+<span class="line"><span>      iif "eth0" th dport 41641 @nh,128,32 0xc0a832a7 @nh,72,8 0x11 accept</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    chain prerouting {</span></span>
+<span class="line"><span>      type nat hook prerouting priority dstnat; policy accept;</span></span>
+<span class="line"><span>      jump UPnP</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    chain postrouting {</span></span>
+<span class="line"><span>      type nat hook postrouting priority srcnat; policy accept;</span></span>
+<span class="line"><span>      jump UPnP_Postrouting</span></span>
+<span class="line"><span>      oif "eth0" ip saddr 192.168.50.0/24 masquerade</span></span>
+<span class="line"><span>      oif "tailscale0" ip saddr 192.168.50.0/24 masquerade</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    chain UPnP {</span></span>
+<span class="line"><span>      iif "eth0" @nh,72,8 0x11 th dport 41643 dnat ip to 192.168.50.167:41641</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    chain UPnP_Postrouting {</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span></code></pre>
+<p>You can see one of my clients has already requested a UPnP rule, and it is working.</p>
+<h2 id="Benchmark">Benchmarking</h2>
+<figure style="text-align:center;">
+  <img src="/assets/2026-03-05-resources/3.avif" alt="Router benchmark" style="width:50%;max-width:440px;display:block;margin:0 auto;">
+</figure>
+<div style="text-align:center; font-size:0.85rem;color:#64748b;margin-top:.4rem;">Right side is my router, and left side is eduroam.</div>
+<p>My WAN uses Ethernet from my dorm. I know it is below 1000 Mbps but above 500 Mbps.
+I tested raw cable speed on my computer. This Wi-Fi 6 AP at 5 GHz reaches throughput
+close to the Ethernet bottleneck.</p>
+<p>Wi-Fi 7 AP at 6 GHz cannot be achieved yet in this setup because kernel <code>6.12</code> does not
+fully support 6 GHz AP mode for this card. If Raspberry Pi OS rolls out newer kernels
+later this year, I will test Wi-Fi 7 again.</p>
+<h2 id="Hardware">Hardware selection guide</h2>
+<p>Selecting hardware is important for a DIY router. In this tutorial I use a Raspberry Pi 5
+and MT7925 Wi-Fi card. MT7925 on Raspberry Pi 5 may require custom kernel builds,
+which adds complexity, but the cost is low compared to some full-feature Wi-Fi 7 cards.
+This card currently has partial Wi-Fi 7 capability in this use case.</p>
+<p>If you need Wi-Fi 7 as a client, check Intel BE200 / AX210 testing and reports.
+You may want to read:</p>
+<blockquote>
+<p><a href="https://www.jeffgeerling.com/blog/2025/exploring-wifi-7-2-gbps-on-raspberry-pi-5/">Exploring Wi-Fi 7 on a Raspberry Pi 5 by Jeff Geerling (Mar 14, 2025)</a></p>
+</blockquote>
+<p>For AP mode, choose a Wi-Fi card that supports dual- or tri-band operation concurrently.
+MT7925 typically supports one active band at a time in this setup (either 2.4 GHz or 5 GHz).</p>
+<p><code>MT7915</code> supports dual-band (2.4 and 5 GHz) for Wi-Fi 6. It is older, and Linux kernel support
+is more mature. See:</p>
+<blockquote>
+<p><a href="https://github.com/raspberrypi/linux/issues/7026">mt7915e driver fails to load on Raspberry Pi 5 with error -12</a></p>
+</blockquote>
+<p>Driver issues can still occur; a custom kernel build may help. For <code>mt7925e</code>, without custom
+kernel changes, error <code>-12</code> can also appear.</p>
+<p><code>QCM865</code> is also recommended by parts of the community and can provide full-speed Wi-Fi 7,
+but a custom kernel may still be needed. See:</p>
+<blockquote>
+<p><a href="https://forums.raspberrypi.com/viewtopic.php?t=396484">ath11k PCI Wi-Fi 6 card not detected</a></p>
+</blockquote>
+<p><code>ath11k</code> is relevant for QCM865 as well and may not be fully enabled in your default
+Raspberry Pi OS kernel build.</p>
+<blockquote class="callout callout-tip" data-callout="tip">
+<p class="callout-title">TIP</p>
+<p>Mar 14 2026: Pi5 PCie can only provide limited power, so even if you got a strong card you might not be able to power
+it. Don’t expect Pi to be a good at AP. Buy a cheap router and flash OpenWrt, and set that router
+as an AP. Why not just use a router? Normal router has limited system resources, but pi isn’t you can do more customization.</p>
+</blockquote>
+<figure style="text-align:center;">
+  <img src="/assets/2026-03-05-resources/1.avif" alt="Pi router" style="width:50%;max-width:440px;display:block;margin:0 auto;">
+</figure>
+<figure style="text-align:center;">
+  <img src="/assets/2026-03-05-resources/2.avif" alt="Pi router" style="width:50%;max-width:440px;display:block;margin:0 auto;">
+</figure> </div> <div class="flex flex-wrap items-center justify-between"> <ul class="mr-4 mb-4 space-x-3"> <li class="inline-block"> <a href="/tags/others" class="block rounded-lg bg-light px-4 py-2 font-semibold text-dark text-sm hover:text-primary transition duration-300">
+#Others </a> </li> </ul> <ul class="social-share mb-4"> <li class="inline-block"> <a aria-label="facebook share button" href="https://facebook.com/sharer/sharer.php?u=https://zihaofu245.me/2026-3-05-pi-router" target="_blank" rel="noreferrer noopener"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M480 257.35c0-123.7-100.3-224-224-224s-224 100.3-224 224c0 111.8 81.9 204.47 189 221.29V322.12h-56.89v-64.77H221V208c0-56.13 33.45-87.16 84.61-87.16 24.51 0 50.15 4.38 50.15 4.38v55.13H327.5c-27.81 0-36.51 17.26-36.51 35v42h62.12l-9.92 64.77H291v156.54c107.1-16.81 189-109.48 189-221.31z"></path></svg> </a> </li> <li class="inline-block"> <a aria-label="twitter share button" href="https://twitter.com/intent/tweet/?text=DIY Raspberry Pi router tutorial (MT7925)&#38;amp;url=https://zihaofu245.me/2026-3-05-pi-router" target="_blank" rel="noreferrer noopener"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M496 109.5a201.8 201.8 0 0 1-56.55 15.3 97.51 97.51 0 0 0 43.33-53.6 197.74 197.74 0 0 1-62.56 23.5A99.14 99.14 0 0 0 348.31 64c-54.42 0-98.46 43.4-98.46 96.9a93.21 93.21 0 0 0 2.54 22.1 280.7 280.7 0 0 1-203-101.3A95.69 95.69 0 0 0 36 130.4c0 33.6 17.53 63.3 44 80.7A97.5 97.5 0 0 1 35.22 199v1.2c0 47 34 86.1 79 95a100.76 100.76 0 0 1-25.94 3.4 94.38 94.38 0 0 1-18.51-1.8c12.51 38.5 48.92 66.5 92.05 67.3A199.59 199.59 0 0 1 39.5 405.6a203 203 0 0 1-23.5-1.4A278.68 278.68 0 0 0 166.74 448c181.36 0 280.44-147.7 280.44-275.8 0-4.2-.11-8.4-.31-12.5A198.48 198.48 0 0 0 496 109.5z"></path></svg> </a> </li> <li class="inline-block"> <a aria-label="linkedin share button" href="https://www.linkedin.com/shareArticle?mini=true&#38;url=https://zihaofu245.me/2026-3-05-pi-router&#38;title=DIY Raspberry Pi router tutorial (MT7925)&#38;summary=undefined&#38;source=https://zihaofu245.me" target="_blank" rel="noreferrer noopener"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M444.17 32H70.28C49.85 32 32 46.7 32 66.89v374.72C32 461.91 49.85 480 70.28 480h373.78c20.54 0 35.94-18.21 35.94-38.39V66.89C480.12 46.7 464.6 32 444.17 32zm-273.3 373.43h-64.18V205.88h64.18zM141 175.54h-.46c-20.54 0-33.84-15.29-33.84-34.43 0-19.49 13.65-34.42 34.65-34.42s33.85 14.82 34.31 34.42c-.01 19.14-13.31 34.43-34.66 34.43zm264.43 229.89h-64.18V296.32c0-26.14-9.34-44-32.56-44-17.74 0-28.24 12-32.91 23.69-1.75 4.2-2.22 9.92-2.22 15.76v113.66h-64.18V205.88h64.18v27.77c9.34-13.3 23.93-32.44 57.88-32.44 42.13 0 74 27.77 74 87.64z"></path></svg> </a> </li> <li class="inline-block"> <a aria-label="pinterest share button" href="https://pinterest.com/pin/create/button/?url=https://zihaofu245.me/2026-3-05-pi-router&#38;media=&#38;description=undefined" target="_blank" rel="noreferrer noopener"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256.05 32c-123.7 0-224 100.3-224 224 0 91.7 55.2 170.5 134.1 205.2-.6-15.6-.1-34.4 3.9-51.4 4.3-18.2 28.8-122.1 28.8-122.1s-7.2-14.3-7.2-35.4c0-33.2 19.2-58 43.2-58 20.4 0 30.2 15.3 30.2 33.6 0 20.5-13.1 51.1-19.8 79.5-5.6 23.8 11.9 43.1 35.4 43.1 42.4 0 71-54.5 71-119.1 0-49.1-33.1-85.8-93.2-85.8-67.9 0-110.3 50.7-110.3 107.3 0 19.5 5.8 33.3 14.8 43.9 4.1 4.9 4.7 6.9 3.2 12.5-1.1 4.1-3.5 14-4.6 18-1.5 5.7-6.1 7.7-11.2 5.6-31.3-12.8-45.9-47-45.9-85.6 0-63.6 53.7-139.9 160.1-139.9 85.5 0 141.8 61.9 141.8 128.3 0 87.9-48.9 153.5-120.9 153.5-24.2 0-46.9-13.1-54.7-27.9 0 0-13 51.6-15.8 61.6-4.7 17.3-14 34.5-22.5 48a225.13 225.13 0 0 0 63.5 9.2c123.7 0 224-100.3 224-224S379.75 32 256.05 32z"></path></svg> </a> </li> </ul> </div> </div> </article> </div> </section> <!-- similar posts -->   </main> <footer class="section bg-dark"> <div class="container text-center">  <ul class="mb-8 space-x-4"> <li class="inline-block"> <a href="/" class="p-4 text-white/75 hover:text-white transition-all"> Home </a> </li><li class="inline-block"> <a href="/blog" class="p-4 text-white/75 hover:text-white transition-all"> Blog </a> </li><li class="inline-block"> <a href="/archive" class="p-4 text-white/75 hover:text-white transition-all"> Archive </a> </li><li class="inline-block"> <a href="/about" class="p-4 text-white/75 hover:text-white transition-all"> About </a> </li><li class="inline-block"> <a href="/resume" class="p-4 text-white/75 hover:text-white transition-all"> Resume </a> </li> </ul>  <ul class="social-icons mb-8"> <li> <a aria-label="GitHub" href="https://github.com/ZihaoFU245" target="_blank" rel="noopener noreferrer nofollow"> <span class="sr-only">GitHub</span> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" class="inline-block" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> </a> </li><li> <a aria-label="X" href="https://x.com/zihaofu245" target="_blank" rel="noopener noreferrer nofollow"> <span class="sr-only">X</span> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="inline-block" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg> </a> </li><li> <a aria-label="LinkedIn" href="https://www.linkedin.com/in/zihao-fu-198b02374" target="_blank" rel="noopener noreferrer nofollow"> <span class="sr-only">LinkedIn</span> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="inline-block" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg> </a> </li><li> <a aria-label="Instagram" href="https://www.instagram.com/zihao_fu06" target="_blank" rel="noopener noreferrer nofollow"> <span class="sr-only">Instagram</span> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="inline-block" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg> </a> </li> </ul>  <p class="text-white/75">Copyright © 2026 Zihao Fu</p> <p class="text-white/75">Copyright (c) 2023 - Present, Themefisher</p> </div> </footer> </body></html>

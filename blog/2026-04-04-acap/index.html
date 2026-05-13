@@ -1,0 +1,309 @@
+<!DOCTYPE html><html lang="en"> <head><!-- google tag manager --><!-- favicon --><link rel="shortcut icon" href="/assets/images/favicons/favicon.ico"><!-- theme meta --><meta name="theme-name" content="bookworm-light-astro"><meta name="msapplication-TileColor" content="#000000"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000"><meta name="generator" content="Astro v6.1.7"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- responsive meta --><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"><!-- title --><title>
+      How to set up a personal AC+AP style network?
+
+    </title><!-- canonical url --><!-- noindex robots --><!-- meta-description --><meta name="description" content="Engineer and CS student writing about systems, infrastructure, learning, and life.
+"><!-- author from config.json --><meta name="author" content="Zihao Fu"><!-- og-title --><meta property="og:title" content="How to set up a personal AC+AP style network?
+"><!-- og-description --><meta property="og:description" content="Engineer and CS student writing about systems, infrastructure, learning, and life.
+"><meta property="og:type" content="website"><meta property="og:url" content="https://zihaofu245.me/blog/2026-04-04-acap"><!-- twitter-title --><meta name="twitter:title" content="How to set up a personal AC+AP style network?
+"><!-- twitter-description --><meta name="twitter:description" content="Engineer and CS student writing about systems, infrastructure, learning, and life.
+"><!-- og-image --><meta property="og:image" content="https://zihaofu245.me/assets/2026-04-04-resources/3.jpeg"><!-- twitter-image --><meta name="twitter:image" content="https://zihaofu245.me/assets/2026-04-04-resources/3.jpeg"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/Base.BEfjS2XV.css"></head> <body>    <header class="header pt-6"> <nav class="navbar container"> <!-- logo --> <div class="order-0"> <a href="/" class="navbar-brand block text-2xl font-semibold text-black"> Zihao Fu </a> </div> <!-- navbar toggler --> <input id="nav-toggle" type="checkbox" class="hidden"> <label id="show-button" for="nav-toggle" class="order-2 flex cursor-pointer items-center text-black md:order-1 md:hidden"> <svg class="h-6 fill-current" viewBox="0 0 20 20"> <title>Menu Open</title> <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path> </svg> </label> <label id="hide-button" for="nav-toggle" class="order-2 hidden cursor-pointer items-center text-black md:order-1"> <svg class="h-6 fill-current" viewBox="0 0 20 20"> <title>Menu Close</title> <polygon points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2" transform="rotate(45 10 10)"></polygon> </svg> </label> <!-- /navbar toggler --> <ul id="nav-menu" class="navbar-nav order-3 hidden w-full md:order-1 md:flex md:w-auto"> <li class="nav-item"> <a href="/" class="nav-link block"> Home </a> </li><li class="nav-item"> <a href="/blog" class="nav-link block"> Blog </a> </li><li class="nav-item"> <a href="/archive" class="nav-link block"> Archive </a> </li><li class="nav-item"> <a href="/about" class="nav-link block"> About </a> </li><li class="nav-item"> <a href="/resume" class="nav-link block"> Resume </a> </li> </ul> <div class="order-1 ml-auto flex md:order-2 md:ml-0"> <a class="mr-4 inline-block cursor-pointer p-2 text-xl text-dark transition hover:text-primary md:mr-0" href="/search" title="seach" aria-label="seach"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M456.69 421.39 362.6 327.3a173.81 173.81 0 0 0 34.84-104.58C397.44 126.38 319.06 48 222.72 48S48 126.38 48 222.72s78.38 174.72 174.72 174.72A173.81 173.81 0 0 0 327.3 362.6l94.09 94.09a25 25 0 0 0 35.3-35.3zM97.92 222.72a124.8 124.8 0 1 1 124.8 124.8 124.95 124.95 0 0 1-124.8-124.8z"></path></svg> </a> </div> </nav> </header> <main id="main-content" class="min-h-[60vh]">  <section class="section"> <div class="container"> <article class="row justify-center"> <div class="md:col-10 text-center"> <h1 class="h2">How to set up a personal AC+AP style network?</h1> <ul class="mt-4 flex flex-wrap items-center justify-center text-text"> <li class="mx-3"> <a href="/authors/zihao-fu" class="flex items-center hover:text-primary font-medium"> <img src="/assets/images/profile.jpg" alt="Zihao Fu" loading="lazy" decoding="async" width="50" height="50" class="mr-2 h-6 w-6 rounded-full"> <span>Zihao Fu</span> </a> </li> <li class="mx-3 flex items-center flex-wrap font-medium"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="mr-1 h-5 w-5 text-gray-600" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M19 4h-3V2h-2v2h-4V2H8v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zM5 20V7h14V6l.002 14H5z"></path><path d="m15.628 12.183-1.8-1.799 1.37-1.371 1.8 1.799zm-7.623 4.018V18h1.799l4.976-4.97-1.799-1.799z"></path></svg> 01 Apr, 2026 </li> <li class="mx-3 flex items-center flex-wrap"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="mr-1 h-[18px] w-[18px] text-gray-600" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM9 9H5V5h4v4zm11 4h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1zm-1 6h-4v-4h4v4zM17 3c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2zM7 13c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z"></path></svg> <ul> <li class="inline-block"> <a href="/categories/tech" class="mr-2 hover:text-primary font-medium"> Tech  </a> </li> </ul> </li> </ul> </div> <div class="col-12 mt-8 mb-2"> <img src="/assets/2026-04-04-resources/3.jpeg" alt="How to set up a personal AC+AP style network?" loading="lazy" decoding="async" width="1000" height="500" class="rounded-lg"> </div> <div class="md:col-10"> <div class="content mb-16 text-left"> <p>Shown above is a <strong>GL.iNet mt3600be</strong> router, used in this blog post for <strong>demonstration</strong>. It uses an OpenWrt-
+based system, providing excellent flexibility. It will be used as a powerful <strong>MLO (Wi-Fi 7) Access Point</strong>.</p>
+<figure style="text-align:center;">
+  <img src="/assets/2026-04-04-resources/1.jpeg" alt="mt3600be" style="width:50%;max-width:440px;display:block;margin:0 auto;">
+</figure>
+<p>As you can see, this is a <strong>CN</strong> version of a GL.iNet router. Features including VPN and AdGuard Home
+are <strong>blocked</strong> (hidden). For Wi-Fi 7 MLO, 6 GHz bandwidth may also be limited. To achieve the best experience,
+you can unlock it by replacing the country code in the <strong>factory image</strong><sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>. For the <strong>global version</strong>,
+you already have most features available.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<nav aria-label="Table of contents" class="toc"><ul><li style="margin-left:0rem"><a href="#what-is-an-acap-style-network">What is an AC+AP style network?</a></li><li style="margin-left:1.25rem"><a href="#components-of-acap-network">Components of AC+AP network</a></li><li style="margin-left:0rem"><a href="#difference-to-mesh-architecture">Difference to mesh architecture?</a></li><li style="margin-left:0rem"><a href="#access-controller--main-router-configuration">Access Controller &#x26; Main Router configuration</a></li><li style="margin-left:1.25rem"><a href="#set-up-bridge-on-startup">Set up bridge on startup</a></li><li style="margin-left:1.25rem"><a href="#configure-routing-firewall">Configure routing (firewall)</a></li><li style="margin-left:0rem"><a href="#access-point-configuration-on-openwrt">Access Point configuration on OpenWrt</a></li><li style="margin-left:1.25rem"><a href="#generic-openwrt">Generic OpenWrt</a></li><li style="margin-left:1.25rem"><a href="#glinet-openwrt">GL.iNet OpenWrt</a></li><li style="margin-left:0rem"><a href="#useful-tips">Useful Tips</a></li></ul></nav>
+<h2 id="what-is-an-acap-style-network">What is an AC+AP style network?</h2>
+<p>An <strong>AC+AP network</strong> is composed of a central <strong>Access Controller</strong> and one or more <strong>Access Points</strong>.
+It is widely used in enterprise environments for large Wi-Fi coverage and fast roaming. <strong>Campus Wi-Fi</strong> is a
+classic example of an AC+AP style network. It can cover an entire campus, and users normally
+cannot feel the latency when a device switches APs. <strong>AC+AP</strong> architecture utilizes 802.11k/v/r
+standards to achieve seamless AP transitions, which is a key advantage.</p>
+<figure style="text-align:center;">
+  <img src="/assets/2026-04-04-resources/8.jpeg" alt="Final" style="width:80%;max-width:540px;display:block;margin:0 auto;">
+</figure>
+<div style="text-align:center; font-size:0.85rem;color:#64748b;margin-top:.4rem;">Final setup</div>
+<p>The image above is an illustration of the finished setup. The <strong>Raspberry Pi 5</strong> on the left is my <strong>AC</strong>
+and <strong>gateway</strong>. The <strong>mt3600be</strong> on the right is used as a <strong>wireless access point</strong>, supporting Wi-Fi 7. The Wi-Fi card,
+<strong>mt7925</strong>, on top of the Pi is a secondary <strong>AP</strong> that I built in <a href="/blog/2026-3-05-pi-router">this post</a>. This post can be seen as an extension of that earlier blog on how to DIY your own router.</p>
+<h3 id="components-of-acap-network">Components of AC+AP network</h3>
+<ul>
+<li><strong>AC</strong>: a central controller that manages one or more APs. In this setup, the Raspberry Pi also acts as the router/gateway.</li>
+<li><strong>AP</strong>: Wireless access point. <strong>mt3600be</strong> and <strong>mt7925</strong> are used.</li>
+<li><strong>PoE Switch</strong>: Optional. Use an Ethernet cable for power and data for a simpler setup. The switch ensures all AC and AP devices are in one subnet.</li>
+<li><strong>Main router</strong>: Used to access WAN. A Raspberry Pi is used.</li>
+</ul>
+<h2 id="difference-to-mesh-architecture">Difference to mesh architecture?</h2>
+<p>An <strong>AC+AP (Access Controller + Access Points)</strong> network is a centralized
+Wi-Fi architecture where multiple APs are managed by a single controller that handles
+configuration, channel planning, and roaming, typically with all APs connected via wired Ethernet
+cable. In contrast, a <strong>mesh network</strong> is distributed: each node acts as both an AP and a relay,
+forwarding traffic over wireless links to other nodes without requiring a central controller. The key
+difference is therefore <strong>centralized control with wired connection (AC+AP)</strong> versus
+<strong>distributed forwarding with wireless connection (mesh)</strong>. As a result, AC+AP systems usually provide
+more stable performance and
+predictable latency, while mesh networks offer <strong>easier deployment</strong> but can suffer reduced throughput
+due to multi-hop wireless links.</p>
+<p><strong>AC+AP</strong> is designed to <strong>scale larger</strong>, targeted for enterprise scenarios, while mesh is targeted for
+<strong>smaller/home</strong> networks.</p>
+<figure style="text-align:center;">
+  <img src="/assets/2026-04-04-resources/2.jpeg" alt="Final" style="width:80%;max-width:540px;display:block;margin:0 auto;">
+</figure>
+<div style="text-align:center; font-size:0.85rem;color:#64748b;margin-top:.4rem;">
+I have 2 OpenWrt routers. In this image, I set both of them as <b>Access Points</b>,
+all connected via physical Ethernet cable. This is an AC+AP style network.
+</div>
+<h2 id="access-controller--main-router-configuration">Access Controller &#x26; Main Router configuration</h2>
+<p>Now let’s dive into configuration. On OpenWrt, when you inspect interfaces,
+you can find one called <code>br-lan</code>; it is a virtual switch. On the AC (Raspberry Pi), you need
+a virtual switch as well, to put multiple network interfaces into one LAN.</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">2:</span><span style="color:#98C379"> eth0:</span><span style="color:#ABB2BF"> &#x3C;</span><span style="color:#98C379">BROADCAST,MULTICAST,UP,LOWER_U</span><span style="color:#ABB2BF">P> </span><span style="color:#98C379">mtu</span><span style="color:#D19A66"> 1500</span><span style="color:#98C379"> qdisc</span><span style="color:#98C379"> fq_codel</span><span style="color:#98C379"> state</span><span style="color:#98C379"> UP</span><span style="color:#98C379"> group</span><span style="color:#98C379"> default</span><span style="color:#98C379"> qlen</span><span style="color:#D19A66"> 1000</span></span>
+<span class="line"><span style="color:#61AFEF">    link/ether</span><span style="color:#98C379"> 2c:cf:67:f5:96:bd</span><span style="color:#98C379"> brd</span><span style="color:#98C379"> ff:ff:ff:ff:ff:ff</span></span>
+<span class="line"><span style="color:#61AFEF">    inet</span><span style="color:#98C379"> 143.89.92.189/23</span><span style="color:#98C379"> brd</span><span style="color:#D19A66"> 143.89.93.255</span><span style="color:#98C379"> scope</span><span style="color:#98C379"> global</span><span style="color:#98C379"> dynamic</span><span style="color:#98C379"> noprefixroute</span><span style="color:#98C379"> eth0</span></span>
+<span class="line"><span style="color:#61AFEF">       valid_lft</span><span style="color:#98C379"> 322039sec</span><span style="color:#98C379"> preferred_lft</span><span style="color:#98C379"> 322039sec</span></span>
+<span class="line"><span style="color:#61AFEF">    inet6</span><span style="color:#98C379"> fe80::2ecf:67ff:fef5:96bd/64</span><span style="color:#98C379"> scope</span><span style="color:#98C379"> link</span><span style="color:#98C379"> noprefixroute</span><span style="color:#ABB2BF"> </span></span>
+<span class="line"><span style="color:#61AFEF">       valid_lft</span><span style="color:#98C379"> forever</span><span style="color:#98C379"> preferred_lft</span><span style="color:#98C379"> forever</span></span>
+<span class="line"><span style="color:#61AFEF">3:</span><span style="color:#98C379"> eth1:</span><span style="color:#ABB2BF"> &#x3C;</span><span style="color:#98C379">BROADCAST,MULTICAST,UP,LOWER_U</span><span style="color:#ABB2BF">P> </span><span style="color:#98C379">mtu</span><span style="color:#D19A66"> 1500</span><span style="color:#98C379"> qdisc</span><span style="color:#98C379"> fq_codel</span><span style="color:#98C379"> master</span><span style="color:#98C379"> br0</span><span style="color:#98C379"> state</span><span style="color:#98C379"> UP</span><span style="color:#98C379"> group</span><span style="color:#98C379"> default</span><span style="color:#98C379"> qlen</span><span style="color:#D19A66"> 1000</span></span>
+<span class="line"><span style="color:#61AFEF">    link/ether</span><span style="color:#98C379"> 9c:69:d3:75:af:fe</span><span style="color:#98C379"> brd</span><span style="color:#98C379"> ff:ff:ff:ff:ff:ff</span></span>
+<span class="line"><span style="color:#61AFEF">    inet6</span><span style="color:#98C379"> fe80::9e69:d3ff:fe75:affe/64</span><span style="color:#98C379"> scope</span><span style="color:#98C379"> link</span><span style="color:#98C379"> proto</span><span style="color:#98C379"> kernel_ll</span><span style="color:#ABB2BF"> </span></span>
+<span class="line"><span style="color:#61AFEF">       valid_lft</span><span style="color:#98C379"> forever</span><span style="color:#98C379"> preferred_lft</span><span style="color:#98C379"> forever</span></span>
+<span class="line"><span style="color:#61AFEF">5:</span><span style="color:#98C379"> wlan1:</span><span style="color:#ABB2BF"> &#x3C;</span><span style="color:#98C379">BROADCAST,MULTICAST,UP,LOWER_U</span><span style="color:#ABB2BF">P> </span><span style="color:#98C379">mtu</span><span style="color:#D19A66"> 1500</span><span style="color:#98C379"> qdisc</span><span style="color:#98C379"> noqueue</span><span style="color:#98C379"> master</span><span style="color:#98C379"> br0</span><span style="color:#98C379"> state</span><span style="color:#98C379"> UP</span><span style="color:#98C379"> group</span><span style="color:#98C379"> default</span><span style="color:#98C379"> qlen</span><span style="color:#D19A66"> 1000</span></span>
+<span class="line"><span style="color:#61AFEF">    link/ether</span><span style="color:#98C379"> 84:9e:56:9c:71:a5</span><span style="color:#98C379"> brd</span><span style="color:#98C379"> ff:ff:ff:ff:ff:ff</span></span>
+<span class="line"><span style="color:#61AFEF">    inet6</span><span style="color:#98C379"> fe80::869e:56ff:fe9c:71a5/64</span><span style="color:#98C379"> scope</span><span style="color:#98C379"> link</span><span style="color:#98C379"> proto</span><span style="color:#98C379"> kernel_ll</span><span style="color:#ABB2BF"> </span></span>
+<span class="line"><span style="color:#61AFEF">       valid_lft</span><span style="color:#98C379"> forever</span><span style="color:#98C379"> preferred_lft</span><span style="color:#98C379"> forever</span></span>
+<span class="line"><span style="color:#61AFEF">6:</span><span style="color:#98C379"> br0:</span><span style="color:#ABB2BF"> &#x3C;</span><span style="color:#98C379">BROADCAST,MULTICAST,UP,LOWER_U</span><span style="color:#ABB2BF">P> </span><span style="color:#98C379">mtu</span><span style="color:#D19A66"> 1500</span><span style="color:#98C379"> qdisc</span><span style="color:#98C379"> noqueue</span><span style="color:#98C379"> state</span><span style="color:#98C379"> UP</span><span style="color:#98C379"> group</span><span style="color:#98C379"> default</span><span style="color:#98C379"> qlen</span><span style="color:#D19A66"> 1000</span></span>
+<span class="line"><span style="color:#61AFEF">    link/ether</span><span style="color:#98C379"> 84:9e:56:9c:71:a5</span><span style="color:#98C379"> brd</span><span style="color:#98C379"> ff:ff:ff:ff:ff:ff</span></span>
+<span class="line"><span style="color:#61AFEF">    inet</span><span style="color:#98C379"> 192.168.205.1/24</span><span style="color:#98C379"> scope</span><span style="color:#98C379"> global</span><span style="color:#98C379"> br0</span></span>
+<span class="line"><span style="color:#61AFEF">       valid_lft</span><span style="color:#98C379"> forever</span><span style="color:#98C379"> preferred_lft</span><span style="color:#98C379"> forever</span></span></code></pre>
+<p>Above are the network interfaces used on my AC. <code>br0</code> is the virtual switch and holds my network subnet IP
+address: <code>192.168.205.1/24</code>. <code>wlan1</code> is the <strong>mt7925</strong> interface and provides a 5 GHz radio. <code>eth1</code> is
+my USB-to-Ethernet adapter, connected externally to my <strong>GL.iNet mt3600be AP</strong>. <code>eth0</code> is the WAN interface; all
+traffic will be <strong>masqueraded</strong> and exit through it.</p>
+<h3 id="set-up-bridge-on-startup">Set up bridge on startup</h3>
+<p>To maintain a persistent bridge even after reboot, the best approach is to use a systemd service.
+Create a <code>/usr/local/sbin/setup-br0.sh</code> shell script that runs on startup.</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#7F848E;font-style:italic">#!/usr/bin/env bash</span></span>
+<span class="line"><span style="color:#56B6C2">set</span><span style="color:#D19A66"> -euo</span><span style="color:#98C379"> pipefail</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E06C75">BR</span><span style="color:#56B6C2">=</span><span style="color:#98C379">br0</span></span>
+<span class="line"><span style="color:#E06C75">LAN_IP</span><span style="color:#56B6C2">=</span><span style="color:#98C379">192.168.205.1/24</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># Create bridge if missing</span></span>
+<span class="line"><span style="color:#C678DD">if</span><span style="color:#ABB2BF"> ! </span><span style="color:#61AFEF">ip</span><span style="color:#98C379"> link</span><span style="color:#98C379"> show</span><span style="color:#98C379"> "</span><span style="color:#E06C75">$BR</span><span style="color:#98C379">"</span><span style="color:#ABB2BF"> ></span><span style="color:#98C379">/dev/null</span><span style="color:#ABB2BF"> 2>&#x26;1; </span><span style="color:#C678DD">then</span></span>
+<span class="line"><span style="color:#61AFEF">    ip</span><span style="color:#98C379"> link</span><span style="color:#98C379"> add</span><span style="color:#98C379"> name</span><span style="color:#98C379"> "</span><span style="color:#E06C75">$BR</span><span style="color:#98C379">"</span><span style="color:#98C379"> type</span><span style="color:#98C379"> bridge</span></span>
+<span class="line"><span style="color:#C678DD">fi</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># Make sure bridge is up and owns the LAN IP</span></span>
+<span class="line"><span style="color:#61AFEF">ip</span><span style="color:#98C379"> link</span><span style="color:#98C379"> set</span><span style="color:#98C379"> dev</span><span style="color:#98C379"> "</span><span style="color:#E06C75">$BR</span><span style="color:#98C379">"</span><span style="color:#98C379"> up</span></span>
+<span class="line"><span style="color:#61AFEF">ip</span><span style="color:#98C379"> link</span><span style="color:#98C379"> set</span><span style="color:#98C379"> dev</span><span style="color:#98C379"> "</span><span style="color:#E06C75">$BR</span><span style="color:#98C379">"</span><span style="color:#98C379"> type</span><span style="color:#98C379"> bridge</span><span style="color:#98C379"> stp_state</span><span style="color:#D19A66"> 0</span><span style="color:#ABB2BF"> || </span><span style="color:#56B6C2">true</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#61AFEF">ip</span><span style="color:#98C379"> addr</span><span style="color:#98C379"> flush</span><span style="color:#98C379"> dev</span><span style="color:#98C379"> "</span><span style="color:#E06C75">$BR</span><span style="color:#98C379">"</span><span style="color:#ABB2BF"> 2></span><span style="color:#98C379">/dev/null</span><span style="color:#ABB2BF"> || </span><span style="color:#56B6C2">true</span></span>
+<span class="line"><span style="color:#61AFEF">ip</span><span style="color:#98C379"> addr</span><span style="color:#98C379"> add</span><span style="color:#98C379"> "</span><span style="color:#E06C75">$LAN_IP</span><span style="color:#98C379">"</span><span style="color:#98C379"> dev</span><span style="color:#98C379"> "</span><span style="color:#E06C75">$BR</span><span style="color:#98C379">"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># Add eth1 only if it exists</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># eth1 is usb ethernet adaptor</span></span>
+<span class="line"><span style="color:#C678DD">if</span><span style="color:#61AFEF"> ip</span><span style="color:#98C379"> link</span><span style="color:#98C379"> show</span><span style="color:#98C379"> eth1</span><span style="color:#ABB2BF"> ></span><span style="color:#98C379">/dev/null</span><span style="color:#ABB2BF"> 2>&#x26;1; </span><span style="color:#C678DD">then</span></span>
+<span class="line"><span style="color:#61AFEF">    ip</span><span style="color:#98C379"> addr</span><span style="color:#98C379"> flush</span><span style="color:#98C379"> dev</span><span style="color:#98C379"> eth1</span><span style="color:#ABB2BF"> 2></span><span style="color:#98C379">/dev/null</span><span style="color:#ABB2BF"> || </span><span style="color:#56B6C2">true</span></span>
+<span class="line"><span style="color:#61AFEF">    ip</span><span style="color:#98C379"> link</span><span style="color:#98C379"> set</span><span style="color:#98C379"> dev</span><span style="color:#98C379"> eth1</span><span style="color:#98C379"> nomaster</span><span style="color:#ABB2BF"> 2></span><span style="color:#98C379">/dev/null</span><span style="color:#ABB2BF"> || </span><span style="color:#56B6C2">true</span></span>
+<span class="line"><span style="color:#61AFEF">    ip</span><span style="color:#98C379"> link</span><span style="color:#98C379"> set</span><span style="color:#98C379"> dev</span><span style="color:#98C379"> eth1</span><span style="color:#98C379"> master</span><span style="color:#98C379"> "</span><span style="color:#E06C75">$BR</span><span style="color:#98C379">"</span></span>
+<span class="line"><span style="color:#61AFEF">    ip</span><span style="color:#98C379"> link</span><span style="color:#98C379"> set</span><span style="color:#98C379"> dev</span><span style="color:#98C379"> eth1</span><span style="color:#98C379"> up</span></span>
+<span class="line"><span style="color:#C678DD">fi</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># We don't set wlan1 master to br0 here is because</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># hostapd will do the bridge configuration</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># leave it to hostapd</span></span></code></pre>
+<p>You may need to modify the script based on your actual setup. For a Raspberry Pi 5 with a USB Ethernet
+adapter, you can use the script as is.</p>
+<p>Create a systemd unit: <code>/etc/systemd/system/setup-br0.service</code></p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="toml"><code><span class="line"><span style="color:#ABB2BF">[</span><span style="color:#61AFEF">Unit</span><span style="color:#ABB2BF">]</span></span>
+<span class="line"><span style="color:#E06C75">Description</span><span style="color:#ABB2BF">=C</span><span style="color:#FFFFFF">reate br0 bridge and attach eth1</span></span>
+<span class="line"><span style="color:#E06C75">Before</span><span style="color:#ABB2BF">=h</span><span style="color:#FFFFFF">ostapd.service</span></span>
+<span class="line"><span style="color:#E06C75">After</span><span style="color:#ABB2BF">=N</span><span style="color:#FFFFFF">etworkManager.service</span></span>
+<span class="line"><span style="color:#E06C75">Requires</span><span style="color:#ABB2BF">=N</span><span style="color:#FFFFFF">etworkManager.service</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#ABB2BF">[</span><span style="color:#61AFEF">Service</span><span style="color:#ABB2BF">]</span></span>
+<span class="line"><span style="color:#E06C75">Type</span><span style="color:#ABB2BF">=o</span><span style="color:#FFFFFF">neshot</span></span>
+<span class="line"><span style="color:#E06C75">ExecStart</span><span style="color:#ABB2BF">=/</span><span style="color:#FFFFFF">usr/local/sbin/setup-br0.sh</span></span>
+<span class="line"><span style="color:#E06C75">RemainAfterExit</span><span style="color:#ABB2BF">=y</span><span style="color:#FFFFFF">es</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#ABB2BF">[</span><span style="color:#61AFEF">Install</span><span style="color:#ABB2BF">]</span></span>
+<span class="line"><span style="color:#E06C75">WantedBy</span><span style="color:#ABB2BF">=m</span><span style="color:#FFFFFF">ulti-user.target</span></span></code></pre>
+<p>Then run <code>sudo systemctl daemon-reload &#x26;&#x26; sudo systemctl enable setup-br0</code>; this will make the script
+execute at startup.</p>
+<p>After reboot or direct execution of the script, you can verify it with <code>bridge link show</code>. All network
+interfaces that you want to place in the same LAN should share the same master bridge. In my case, as shown
+below, wlan1 and eth1 both have master br0.</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">3:</span><span style="color:#98C379"> eth1:</span><span style="color:#ABB2BF"> &#x3C;</span><span style="color:#98C379">BROADCAST,MULTICAST,UP,LOWER_U</span><span style="color:#ABB2BF">P> </span><span style="color:#98C379">mtu</span><span style="color:#D19A66"> 1500</span><span style="color:#98C379"> master</span><span style="color:#98C379"> br0</span><span style="color:#98C379"> state</span><span style="color:#98C379"> forwarding</span><span style="color:#98C379"> priority</span><span style="color:#D19A66"> 32</span><span style="color:#98C379"> cost</span><span style="color:#D19A66"> 5</span></span>
+<span class="line"><span style="color:#61AFEF">5:</span><span style="color:#98C379"> wlan1:</span><span style="color:#ABB2BF"> &#x3C;</span><span style="color:#98C379">BROADCAST,MULTICAST,UP,LOWER_U</span><span style="color:#ABB2BF">P> </span><span style="color:#98C379">mtu</span><span style="color:#D19A66"> 1500</span><span style="color:#98C379"> master</span><span style="color:#98C379"> br0</span><span style="color:#98C379"> state</span><span style="color:#98C379"> forwarding</span><span style="color:#98C379"> priority</span><span style="color:#D19A66"> 32</span><span style="color:#98C379"> cost</span><span style="color:#D19A66"> 100</span></span></code></pre>
+<p>For the wlan1 interface, you <strong>don’t manually</strong> assign it to br0. Put that in the hostapd config file,
+and hostapd will configure it for you.</p>
+<h3 id="configure-routing-firewall">Configure routing (firewall)</h3>
+<p>Now that your bridge is configured, it is time to configure routing rules and access controls.
+I use nftables as the firewall, which gives more granular control than ufw or firewall-cmd.
+nftables is the default firewall in modern Linux operating systems, offering better usability
+than iptables.</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="nginx"><code><span class="line"><span style="color:#7F848E;font-style:italic">#!/usr/sbin/nft -f</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># add table ensures the table exists before flush</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># Do not use flush ruleset, scope is too big</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic"># And will modify iptables-nft rules</span></span>
+<span class="line"><span style="color:#C678DD">add</span><span style="color:#ABB2BF"> table inet filter</span></span>
+<span class="line"><span style="color:#C678DD">flush</span><span style="color:#ABB2BF"> table inet filter</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">table</span><span style="color:#ABB2BF"> inet filter {</span></span>
+<span class="line"><span style="color:#C678DD">    chain</span><span style="color:#ABB2BF"> input {</span></span>
+<span class="line"><span style="color:#C678DD">        type</span><span style="color:#ABB2BF"> filter hook input priority </span><span style="color:#D19A66">0</span><span style="color:#ABB2BF">; </span><span style="color:#C678DD">policy</span><span style="color:#ABB2BF"> drop;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">        iifname</span><span style="color:#98C379"> "lo"</span><span style="color:#ABB2BF"> accept</span></span>
+<span class="line"><span style="color:#C678DD">        ct</span><span style="color:#ABB2BF"> state established,related accept</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">        # DNS / DHCP / UPnP</span></span>
+<span class="line"><span style="color:#C678DD">        iifname</span><span style="color:#ABB2BF"> { </span><span style="color:#98C379">"br0"</span><span style="color:#ABB2BF">, </span><span style="color:#98C379">"wlan1"</span><span style="color:#ABB2BF">, </span><span style="color:#98C379">"eth1"</span><span style="color:#ABB2BF"> } udp dport { 67, </span><span style="color:#D19A66">53</span><span style="color:#ABB2BF"> } accept</span></span>
+<span class="line"><span style="color:#C678DD">        iifname</span><span style="color:#ABB2BF"> { </span><span style="color:#98C379">"br0"</span><span style="color:#ABB2BF">, </span><span style="color:#98C379">"wlan1"</span><span style="color:#ABB2BF">, </span><span style="color:#98C379">"eth1"</span><span style="color:#ABB2BF"> } tcp dport </span><span style="color:#D19A66">53</span><span style="color:#ABB2BF"> accept</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">        ip</span><span style="color:#ABB2BF"> protocol icmp accept</span></span>
+<span class="line"><span style="color:#C678DD">        ip6</span><span style="color:#ABB2BF"> nexthdr ipv6-icmp accept</span></span>
+<span class="line"><span style="color:#ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">    chain</span><span style="color:#ABB2BF"> forward {</span></span>
+<span class="line"><span style="color:#C678DD">        type</span><span style="color:#ABB2BF"> filter hook forward priority </span><span style="color:#D19A66">0</span><span style="color:#ABB2BF">; </span><span style="color:#C678DD">policy</span><span style="color:#ABB2BF"> drop;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">        ct</span><span style="color:#ABB2BF"> state established,related accept</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">        # Normal routing</span></span>
+<span class="line"><span style="color:#C678DD">        iifname</span><span style="color:#98C379"> "br0"</span><span style="color:#ABB2BF"> oifname </span><span style="color:#98C379">"eth0"</span><span style="color:#ABB2BF"> accept</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">        # LAN, change to your subnet</span></span>
+<span class="line"><span style="color:#C678DD">        ip</span><span style="color:#ABB2BF"> saddr 192.168.205.0/24 accept</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">        ip</span><span style="color:#ABB2BF"> protocol icmp accept</span></span>
+<span class="line"><span style="color:#C678DD">        ip6</span><span style="color:#ABB2BF"> nexthdr ipv6-icmp accept</span></span>
+<span class="line"><span style="color:#ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">    chain</span><span style="color:#ABB2BF"> output {</span></span>
+<span class="line"><span style="color:#C678DD">        type</span><span style="color:#ABB2BF"> filter hook output priority </span><span style="color:#D19A66">0</span><span style="color:#ABB2BF">; </span><span style="color:#C678DD">policy</span><span style="color:#ABB2BF"> accept;</span></span>
+<span class="line"><span style="color:#ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">    # ---------- NAT ----------</span></span>
+<span class="line"><span style="color:#C678DD">    chain</span><span style="color:#ABB2BF"> prerouting {</span></span>
+<span class="line"><span style="color:#C678DD">        type</span><span style="color:#ABB2BF"> nat hook prerouting priority dstnat; </span><span style="color:#C678DD">policy</span><span style="color:#ABB2BF"> accept;</span></span>
+<span class="line"><span style="color:#ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">    chain</span><span style="color:#ABB2BF"> postrouting {</span></span>
+<span class="line"><span style="color:#C678DD">        type</span><span style="color:#ABB2BF"> nat hook postrouting priority srcnat; </span><span style="color:#C678DD">policy</span><span style="color:#ABB2BF"> accept;</span></span>
+<span class="line"><span style="color:#C678DD">        oifname</span><span style="color:#98C379"> "eth0"</span><span style="color:#ABB2BF"> ip saddr 192.168.205.0/24 masquerade</span></span>
+<span class="line"><span style="color:#ABB2BF">    }</span></span>
+<span class="line"><span style="color:#ABB2BF">}</span></span></code></pre>
+<p>Above is an example of <strong>restricted cone NAT</strong> achieved with nftables<sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>,
+the most common NAT type. If you are using P2P,
+consider using <strong>miniupnpd</strong><sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup> or change postrouting last line to
+<code>oifname "eth0" ip saddr 192.168.205.0/24 masquerade fully-random, persistent</code>, change source address
+field to your LAN address.</p>
+<hr>
+<p>What does an AC+AP router need?</p>
+<ul>
+<li>Routing: Covered, use nftables</li>
+<li>DHCP / DNS: use dnsmasq<sup><a href="#user-content-fn-4" id="user-content-fnref-4" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup></li>
+<li>Bridge LAN: Covered, use shell script to manually create and assign</li>
+<li>Radio: use hostapd or add a router as a dummy access point (covered next).</li>
+</ul>
+<p>Before you continue, you should finish the first 3 steps, or at least part of step 4.
+For me, I am using <strong>hostapd</strong> on <strong>wlan1</strong><sup><a href="#user-content-fn-5" id="user-content-fnref-5" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup>, my MediaTek Wi-Fi card.</p>
+<h2 id="access-point-configuration-on-openwrt">Access Point configuration on OpenWrt</h2>
+<h3 id="generic-openwrt">Generic OpenWrt</h3>
+<p>On OpenWrt, to achieve the best roaming speed, 802.11k/v/r standards are required.
+OpenWrt firmware usually bundles <strong>wpad-basic-mbedtls</strong>, which does not include support
+for these standards. We will need to install <strong>wpad-openssl</strong> for full support.</p>
+<p><img src="/assets/2026-04-04-resources/11.png" alt="wpad-openssl"></p>
+<p>On the latest OpenWrt 25.12 version, use <code>apk add wpad-openssl</code> or go to LuCI<sup><a href="#user-content-fn-6" id="user-content-fnref-6" data-footnote-ref="" aria-describedby="footnote-label">6</a></sup> and install the package
+in <strong>System->Software</strong>, search <strong>wpad-openssl</strong>, and install it.</p>
+<p>Then go to <strong>Network->Wireless</strong> and configure radio settings.</p>
+<p><img src="/assets/2026-04-04-resources/9.png" alt="network"></p>
+<p>I recommend using interactive configuration instead of UCI because it is easier. On older
+OpenWrt versions, such as 21 on mt3600be, LuCI does not provide a section to edit roaming configuration,
+even though it is supported. In that case, UCI is needed.</p>
+<p>Lastly, go to Edit radio, configure your Access Point, disable DHCP on <code>br-lan</code>, and set <code>br-lan</code>
+to a static IP address.</p>
+<p><img src="/assets/2026-04-04-resources/10.png" alt="AP"></p>
+<h3 id="glinet-openwrt">GL.iNet OpenWrt</h3>
+<p>In GL.iNet Network mode, you can set OpenWrt to <strong>Access Point</strong>. It will automatically disable
+DHCP and request an IP address from the upstream router via DHCP.</p>
+<p><img src="/assets/2026-04-04-resources/12.png" alt="Network mode GLiNet"></p>
+<p>This does not provide your router with a static IP address.
+When accessing the router admin panel remotely, you’ll need to look up the IP address
+on the main router. Or use the following:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">uci</span><span style="color:#98C379"> set</span><span style="color:#98C379"> network.lan.ipaddr='192.168.205.2'</span><span style="color:#7F848E;font-style:italic"> # In the same subnet, avoid IP address collision</span></span>
+<span class="line"><span style="color:#61AFEF">uci</span><span style="color:#98C379"> set</span><span style="color:#98C379"> network.lan.netmask='255.255.255.0'</span></span>
+<span class="line"><span style="color:#61AFEF">uci</span><span style="color:#98C379"> commit</span><span style="color:#98C379"> network</span></span>
+<span class="line"><span style="color:#61AFEF">/etc/init.d/network</span><span style="color:#98C379"> restart</span></span></code></pre>
+<p>To enable 802.11k/v/r, use the following:</p>
+<pre class="astro-code one-dark-pro" style="background-color:#282c34;color:#abb2bf; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#61AFEF">uci</span><span style="color:#98C379"> set</span><span style="color:#98C379"> wireless.lan.ieee80211r='1'</span></span>
+<span class="line"><span style="color:#61AFEF">uci</span><span style="color:#98C379"> set</span><span style="color:#98C379"> wireless.lan.mobility_domain='4f57'</span></span>
+<span class="line"><span style="color:#61AFEF">uci</span><span style="color:#98C379"> set</span><span style="color:#98C379"> wireless.lan.ft_over_ds='1'</span></span>
+<span class="line"><span style="color:#61AFEF">uci</span><span style="color:#98C379"> set</span><span style="color:#98C379"> wireless.lan.ft_psk_generate_local='1'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#61AFEF">uci</span><span style="color:#98C379"> set</span><span style="color:#98C379"> wireless.lan.bss_transition='1'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#61AFEF">uci</span><span style="color:#98C379"> set</span><span style="color:#98C379"> wireless.lan.rrm_neighbor_report='1'</span></span>
+<span class="line"><span style="color:#61AFEF">uci</span><span style="color:#98C379"> set</span><span style="color:#98C379"> wireless.lan.rrm_beacon_report='1'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#61AFEF">uci</span><span style="color:#98C379"> commit</span><span style="color:#98C379"> wireless</span></span>
+<span class="line"><span style="color:#61AFEF">wifi</span><span style="color:#98C379"> reload</span></span></code></pre>
+<p>After this, your GL.iNet router will be a powerful access point.</p>
+<figure style="text-align:center;">
+  <img src="/assets/2026-04-04-resources/4.jpeg" alt="Final" style="width:50%;max-width:540px;display:block;margin:0 auto;">
+</figure>
+<h2 id="useful-tips">Useful Tips</h2>
+<ol>
+<li>Use an <strong>Ethernet cable</strong> to connect to your router before configuring, in case you lose access midway.</li>
+<li>When configuring the router IP address, your gateway IP address will change, for example from <code>192.168.8.1</code>
+to <code>192.168.205.*</code>. So your admin panel will not receive a response at the old address; go to the new IP address to
+access the admin panel.</li>
+</ol>
+<hr>
+<p>For the generic OpenWrt demo, I used a <strong>Cudy TR3000</strong> (256 MB version), a Wi-Fi 6 router with an <strong>mt7981</strong> chipset.
+Flashing OpenWrt is very straightforward, and OpenWrt has official support<sup><a href="#user-content-fn-7" id="user-content-fnref-7" data-footnote-ref="" aria-describedby="footnote-label">7</a></sup>. This is
+a decent OpenWrt starter device.</p>
+<figure style="text-align:center;">
+  <img src="/assets/2026-04-04-resources/5.jpeg" alt="Final" style="width:80%;max-width:540px;display:block;margin:0 auto;">
+</figure>
+<figure style="text-align:center;">
+  <img src="/assets/2026-04-04-resources/6.jpeg" alt="Final" style="width:80%;max-width:540px;display:block;margin:0 auto;">
+</figure>
+<figure style="text-align:center;">
+  <img src="/assets/2026-04-04-resources/7.jpeg" alt="Final" style="width:80%;max-width:540px;display:block;margin:0 auto;">
+</figure><div style="text-align:center; font-size:0.85rem;color:#64748b;margin-top:.4rem;">
+Internal details
+</div>
+<hr>
+<p>REFERENCES:</p>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p>How to find “CN” string and replace to “US” for GL.iNet mt3600be: <a href="https://www.reddit.com/r/GlInet/comments/1qfeva7/guide_region_unlock_glmt3600be_beryl_7_cn_to">https://www.reddit.com/r/GlInet/comments/1qfeva7/guide_region_unlock_glmt3600be_beryl_7_cn_to</a> <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-2">
+<p>nftables NAT documentation: <a href="https://wiki.nftables.org/wiki-nftables/index.php/Performing_Network_Address_Translation_(NAT)#Masquerading">https://wiki.nftables.org/wiki-nftables/index.php/Performing_Network_Address_Translation_(NAT)#Masquerading</a> <a href="#user-content-fnref-2" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-3">
+<p>OpenWrt configure upnpd: <a href="https://openwrt.org/docs/guide-user/firewall/upnp/miniupnpd">https://openwrt.org/docs/guide-user/firewall/upnp/miniupnpd</a> <a href="#user-content-fnref-3" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-4">
+<p>Dnsmasq configuration tutorial on Fedora: <a href="https://docs.fedoraproject.org/en-US/fedora-server/administration/dnsmasq/">https://docs.fedoraproject.org/en-US/fedora-server/administration/dnsmasq/</a> <a href="#user-content-fnref-4" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-5">
+<p>Zihao Fu, configuring mt7925 on Raspberry Pi: <a href="https://zihaofu245.me/blog/2026-3-05-pi-router/#Hostapd">https://zihaofu245.me/blog/2026-3-05-pi-router/#Hostapd</a> <a href="#user-content-fnref-5" data-footnote-backref="" aria-label="Back to reference 5" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-6">
+<p>LuCI documentation: <a href="https://openwrt.github.io/luci/jsapi/">https://openwrt.github.io/luci/jsapi/</a> <a href="#user-content-fnref-6" data-footnote-backref="" aria-label="Back to reference 6" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-7">
+<p>Cudy TR3000 OpenWrt documentation: <a href="https://openwrt.org/toh/cudy/tr3000">https://openwrt.org/toh/cudy/tr3000</a> <a href="#user-content-fnref-7" data-footnote-backref="" aria-label="Back to reference 7" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section> </div> <div class="flex flex-wrap items-center justify-between"> <ul class="mr-4 mb-4 space-x-3"> <li class="inline-block"> <a href="/tags/others" class="block rounded-lg bg-light px-4 py-2 font-semibold text-dark text-sm hover:text-primary transition duration-300">
+#Others </a> </li> </ul> <ul class="social-share mb-4"> <li class="inline-block"> <a aria-label="facebook share button" href="https://facebook.com/sharer/sharer.php?u=https://zihaofu245.me/2026-04-04-acap" target="_blank" rel="noreferrer noopener"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M480 257.35c0-123.7-100.3-224-224-224s-224 100.3-224 224c0 111.8 81.9 204.47 189 221.29V322.12h-56.89v-64.77H221V208c0-56.13 33.45-87.16 84.61-87.16 24.51 0 50.15 4.38 50.15 4.38v55.13H327.5c-27.81 0-36.51 17.26-36.51 35v42h62.12l-9.92 64.77H291v156.54c107.1-16.81 189-109.48 189-221.31z"></path></svg> </a> </li> <li class="inline-block"> <a aria-label="twitter share button" href="https://twitter.com/intent/tweet/?text=How to set up a personal AC+AP style network?&#38;amp;url=https://zihaofu245.me/2026-04-04-acap" target="_blank" rel="noreferrer noopener"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M496 109.5a201.8 201.8 0 0 1-56.55 15.3 97.51 97.51 0 0 0 43.33-53.6 197.74 197.74 0 0 1-62.56 23.5A99.14 99.14 0 0 0 348.31 64c-54.42 0-98.46 43.4-98.46 96.9a93.21 93.21 0 0 0 2.54 22.1 280.7 280.7 0 0 1-203-101.3A95.69 95.69 0 0 0 36 130.4c0 33.6 17.53 63.3 44 80.7A97.5 97.5 0 0 1 35.22 199v1.2c0 47 34 86.1 79 95a100.76 100.76 0 0 1-25.94 3.4 94.38 94.38 0 0 1-18.51-1.8c12.51 38.5 48.92 66.5 92.05 67.3A199.59 199.59 0 0 1 39.5 405.6a203 203 0 0 1-23.5-1.4A278.68 278.68 0 0 0 166.74 448c181.36 0 280.44-147.7 280.44-275.8 0-4.2-.11-8.4-.31-12.5A198.48 198.48 0 0 0 496 109.5z"></path></svg> </a> </li> <li class="inline-block"> <a aria-label="linkedin share button" href="https://www.linkedin.com/shareArticle?mini=true&#38;url=https://zihaofu245.me/2026-04-04-acap&#38;title=How to set up a personal AC+AP style network?&#38;summary=undefined&#38;source=https://zihaofu245.me" target="_blank" rel="noreferrer noopener"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M444.17 32H70.28C49.85 32 32 46.7 32 66.89v374.72C32 461.91 49.85 480 70.28 480h373.78c20.54 0 35.94-18.21 35.94-38.39V66.89C480.12 46.7 464.6 32 444.17 32zm-273.3 373.43h-64.18V205.88h64.18zM141 175.54h-.46c-20.54 0-33.84-15.29-33.84-34.43 0-19.49 13.65-34.42 34.65-34.42s33.85 14.82 34.31 34.42c-.01 19.14-13.31 34.43-34.66 34.43zm264.43 229.89h-64.18V296.32c0-26.14-9.34-44-32.56-44-17.74 0-28.24 12-32.91 23.69-1.75 4.2-2.22 9.92-2.22 15.76v113.66h-64.18V205.88h64.18v27.77c9.34-13.3 23.93-32.44 57.88-32.44 42.13 0 74 27.77 74 87.64z"></path></svg> </a> </li> <li class="inline-block"> <a aria-label="pinterest share button" href="https://pinterest.com/pin/create/button/?url=https://zihaofu245.me/2026-04-04-acap&#38;media=&#38;description=undefined" target="_blank" rel="noreferrer noopener"> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256.05 32c-123.7 0-224 100.3-224 224 0 91.7 55.2 170.5 134.1 205.2-.6-15.6-.1-34.4 3.9-51.4 4.3-18.2 28.8-122.1 28.8-122.1s-7.2-14.3-7.2-35.4c0-33.2 19.2-58 43.2-58 20.4 0 30.2 15.3 30.2 33.6 0 20.5-13.1 51.1-19.8 79.5-5.6 23.8 11.9 43.1 35.4 43.1 42.4 0 71-54.5 71-119.1 0-49.1-33.1-85.8-93.2-85.8-67.9 0-110.3 50.7-110.3 107.3 0 19.5 5.8 33.3 14.8 43.9 4.1 4.9 4.7 6.9 3.2 12.5-1.1 4.1-3.5 14-4.6 18-1.5 5.7-6.1 7.7-11.2 5.6-31.3-12.8-45.9-47-45.9-85.6 0-63.6 53.7-139.9 160.1-139.9 85.5 0 141.8 61.9 141.8 128.3 0 87.9-48.9 153.5-120.9 153.5-24.2 0-46.9-13.1-54.7-27.9 0 0-13 51.6-15.8 61.6-4.7 17.3-14 34.5-22.5 48a225.13 225.13 0 0 0 63.5 9.2c123.7 0 224-100.3 224-224S379.75 32 256.05 32z"></path></svg> </a> </li> </ul> </div> </div> </article> </div> </section> <!-- similar posts -->   </main> <footer class="section bg-dark"> <div class="container text-center">  <ul class="mb-8 space-x-4"> <li class="inline-block"> <a href="/" class="p-4 text-white/75 hover:text-white transition-all"> Home </a> </li><li class="inline-block"> <a href="/blog" class="p-4 text-white/75 hover:text-white transition-all"> Blog </a> </li><li class="inline-block"> <a href="/archive" class="p-4 text-white/75 hover:text-white transition-all"> Archive </a> </li><li class="inline-block"> <a href="/about" class="p-4 text-white/75 hover:text-white transition-all"> About </a> </li><li class="inline-block"> <a href="/resume" class="p-4 text-white/75 hover:text-white transition-all"> Resume </a> </li> </ul>  <ul class="social-icons mb-8"> <li> <a aria-label="GitHub" href="https://github.com/ZihaoFU245" target="_blank" rel="noopener noreferrer nofollow"> <span class="sr-only">GitHub</span> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" class="inline-block" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> </a> </li><li> <a aria-label="X" href="https://x.com/zihaofu245" target="_blank" rel="noopener noreferrer nofollow"> <span class="sr-only">X</span> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="inline-block" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg> </a> </li><li> <a aria-label="LinkedIn" href="https://www.linkedin.com/in/zihao-fu-198b02374" target="_blank" rel="noopener noreferrer nofollow"> <span class="sr-only">LinkedIn</span> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="inline-block" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg> </a> </li><li> <a aria-label="Instagram" href="https://www.instagram.com/zihao_fu06" target="_blank" rel="noopener noreferrer nofollow"> <span class="sr-only">Instagram</span> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="inline-block" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg> </a> </li> </ul>  <p class="text-white/75">Copyright © 2026 Zihao Fu</p> <p class="text-white/75">Copyright (c) 2023 - Present, Themefisher</p> </div> </footer> </body></html>
