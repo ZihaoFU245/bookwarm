@@ -1,6 +1,6 @@
 ---
 title: A tunnel module for nginx
-date: 2026-05-05
+date: 2026-05-13
 image: /assets/2026-05-05-resources/illustration.png
 categories:
   - Tech
@@ -16,7 +16,7 @@ however, the support for 'proxy for the client' is still immature.
   <img
     src="https://opengraph.githubassets.com/1/ZihaoFU245/ngx_http_tunnel_module"
     alt="ZihaoFU245/ngx_http_tunnel_module GitHub repository"
-    style="max-width: 50%; border-radius: 8px; border: 1px solid #d0d7de;"
+    style="max-width: 70%; border-radius: 8px; border: 1px solid #d0d7de;"
   />
 </a>
 
@@ -38,10 +38,7 @@ This is basically a forward proxy for nginx, supporting the following:
 - Proxy Authentication
 - Map based ACL
 - Naive style padding protocol
-
-WIP:
-
-- Extended CONNECT, including connect-udp
+- Extended CONNECT with connect-udp
 
 ### Why it exists? What is vanilla nginx missing?
 
@@ -250,7 +247,11 @@ its pre-content phase handler runs first, and it can skip the entire phase, with
  +--------------------------+                      +------------------+
               ||
               \/
-        (Start Tunnel)
+ +---------------------------+                      +---------------------------+
+ |       (Send 200 OK)       |      (Byte Relay)    |                           |
+ |      Tunnel started       | ===================> | padding / capsule hooking |
+ |                           |                      |                           |
+ +---------------------------+                      +---------------------------+
 ```
 
 This is a simple illustration for module entry. For more internal details, check the README
@@ -266,7 +267,9 @@ h2.
 
 ## Extended CONNECT, including connect-udp?
 
-This is still a WIP feature; the capsule parsing section is now finished.
+This is still a WIP feature, capsule and UDP support is finished,
+but connect-ip is still in consideration. As it requires opening
+a tun, and send ip packets to tun.
 
 ### What is MASQUE and Capsule protocol?
 
@@ -303,6 +306,28 @@ The above definitions can be found in the RFC, [connect-udp](https://www.rfc-edi
 
 Auth: Standard Proxy-Authenticate
 
+The auth module will not be compiled into module if nginx version >= 1.31.0,
+as 1.31 nginx already supports Proxy Authentication. It can be done cleanly, eg:
+
+```nginx
+map $request_method $auth_realm {
+  default off;
+  CONNECT "proxy";
+}
+
+server {
+  auth_basic $auth_realm;
+  auth_basic_user_file /path/to/.htaccess;
+  error_page 407 =405 @probe-resistance;
+
+  location @probe_resistance {
+    internal;
+    # add_header Allow "Example";
+    return 405;
+  }
+}
+```
+
 ACL: Utilize nginx maps
 
 The module exposes a variable called `$connect_target_host`. In h2/h3, this is equivalent to `$request_uri`,
@@ -333,9 +358,9 @@ I still need to do testing and serious comparison with caddy, go based module.
 
 ## Known Issues
 
-1. It is observed that the memory pool is only destroyed when the client connection is finalized.
-For a long-running client, the memory may stack up and be released only when the connection
-is closed. I will be making improvements to the module and try to eliminate this behaviour.
+1. The connect-udp and classic connect is using seperate relay loop,
+and most of the code are similar. I would need to do some level of refactor,
+to only use 1 relay loop in for all connect methods.
 
 ## Why not use existing tools?
 
@@ -390,10 +415,10 @@ http {
 	# Allowed mapping values:
 	# 0/1: deny/allow
 	# 2/3: deny/allow + logging
-	#
+	# 
 	# Example:
 	# Blocking a single hostname:
-	# ~^example\.com(:[0-9]+)?$
+	# ~^example\.com(:[0-9]+)?$ 
 	# --------------------------------------------
 	map $connect_target_host $is_granted {
 		default 1;								# default allow
@@ -401,6 +426,12 @@ http {
 		~(^|:)fr\.a2dfp\.net(:|$)       0;		# deny
 		~(^|:)static\.a-ads\.com(:|$)   2;		# deny + log
 	}
+
+	# Use Proxy Auth but on CONNECT only
+	map $request_method $connect_auth_realm {
+        default  off;
+        CONNECT  "proxy";
+    }
 
 	server {
 		listen 0.0.0.0:443 ssl;
@@ -428,16 +459,23 @@ http {
 		ssl_certificate_key privkey.pem;
 
 		tunnel_pass;                        	# Enable tunnel module
-		tunnel_buffer_size 2M;              	# Buffer size for tunnel relay
+		tunnel_buffer_size 128k;              	# Buffer size for tunnel relay 
+
+		# NGINX 1.30 AND OLDER ONLY
 		tunnel_proxy_auth_user_file /path/to/.htaccess;
-
-		# off: auth failures return 407
-		# on: auth failures return 405 like nginx method rejection
 		tunnel_probe_resistance off;
-
-		# Empty by default, matching nginx core CONNECT rejection:
-		# Set this unless you know what you are doing
 		tunnel_probe_resistance_allow_methods "";
+
+		# NGINX 1.31.0 AND NEWER
+		# auth_basic $connect_auth_realm;
+		# auth_basic_user_file /path/to/.htaccess;
+		# error_page 407 =405 @probe_resistance;
+
+		# location @probe_resistance {
+		#	 internal;
+		#	 # add_header Allow "GET, POST, OPTIONS" always;
+		# 	 return 405;
+		# }
 
         tunnel_padding off;                 	# Opt in padding scheme for h2/h3
         tunnel_connect_timeout 60s;
@@ -446,6 +484,9 @@ http {
 		# 0: deny, 1: allow, 2: deny + log, 3: allow + log.
 		# $connect_target_host is the raw CONNECT authority.
 		tunnel_acl_eval_on $is_granted;
+
+		tunnel_udp on; 							# Enable connect udp with capsule protocol
+		tunnel_udp_path $request_uri; 			# Path variable for parsing masque path
 
 		# location blocks are recommended to set after
 		# tunnel configurations, as tunnel module
@@ -458,7 +499,7 @@ http {
 		    root /var/www/html;
 			index index.html;
 
-			# To avoid The Discriminative Power of Cross-layer
+			# To avoid The Discriminative Power of Cross-layer 
 			# RTTs in Fingerprinting Proxy Traffic
 			# It is recommended to either proxy_pass to a server
 			# running on the same nginx instance or
@@ -467,7 +508,6 @@ http {
     }
 }
 ```
-
 ---
 
 [^1]: HTTP Phases in nginx internal: https://nginx.org/en/docs/dev/development_guide.html#http_phases
